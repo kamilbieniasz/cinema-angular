@@ -1,0 +1,58 @@
+.movieDetailsContainer {
+  height: 85vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  img {
+    height: 600px;
+  }
+  .movieInfo {
+    width: 40vw;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    .title {
+      font-size: 35px;
+      display: flex;
+      justify-content: center;
+    }
+    .description {
+    }
+    .otherInfo {
+      padding-top: 20px;
+    }
+    .order{
+        display:flex;
+        justify-content: center;
+        font-size:25px;
+    }
+
+    .hours {
+        display:flex;
+        justify-content: center;
+      ul {
+        display: inline-flex;
+        li {
+          width: 70px;
+          height: 40px;
+          border: 2px solid #175185;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          margin: 10px;
+          user-select: none;
+        }
+        li:first-child{
+            margin-left:0;
+        }
+
+        li:hover {
+          background: linear-gradient(to right, #102c46, #175185, #102c46);
+          color: white;
+        }
+      }
+    }
+  }
+}

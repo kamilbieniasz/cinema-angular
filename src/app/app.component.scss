@@ -1,0 +1,40 @@
+.navbar{
+    width:100vw;
+    height:10vh;
+    background: linear-gradient(to right, #102C46, #175185 , #102C46);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+    ul{
+        display: flex;
+        flex-direction: row;
+        height:100%;
+        align-items: center;
+        li{
+            cursor:pointer;
+            list-style-type:none;
+            color:white;
+            margin:20px;
+            font-size:30px;
+            padding: 0 20px;
+            transition: transform .15s;
+        }
+        li:hover{
+            transform:scale(1.2);
+            transition: transform .15s;
+        }
+        .verticalLine{
+            width: 0px;
+            height: 80%;
+            float: left; 
+            border: 1px inset
+        }
+        
+    }
+}
+footer{
+    width:100vw;
+    height:5vh;
+    background: linear-gradient(to right, #102C46, #175185 , #102C46);
+}

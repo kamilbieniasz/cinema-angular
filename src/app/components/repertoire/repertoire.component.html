@@ -1,0 +1,22 @@
+<div class="date">
+    <ul *ngFor="let date of date; let i = index">
+        <li (click)="selectedItem(i)" [ngClass]="{active: selectedItemId == i}">
+            {{date.getDate()}}<br>
+            {{dayName[date.getDay()]}}<br>
+            {{monthName[date.getMonth()]}}
+        </li>
+    </ul>
+</div>
+<hr/>
+<div class="filmContainer">
+    <ul *ngFor="let movie of movies">
+        <li>
+            <span class="movieInfo">
+            <img [src]="movie.cover"/>
+            {{movie.title}}
+            Czas trwania: {{movie.duration}} min.
+            </span>
+            <button (click)="sendMovie(movie)" [routerLink]="['/movie', movie.id]">Zobacz szczegóły</button>
+        </li>
+    </ul>
+</div>

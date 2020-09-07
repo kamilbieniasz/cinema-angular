@@ -1,0 +1,20 @@
+<div class="movieDetailsContainer">
+  <img class="movieCover" [src]="movie.cover" [alt]="movie.title" />
+  <span class="movieInfo">
+    <span class="title"
+      ><strong>{{ movie.title }}</strong></span
+    >
+    <span class="description">{{ movie.description }}</span>
+    <span class="otherInfo">
+      Reżyserii: {{ movie.direction }},<br />
+      <span *ngIf="movie.cast">Obsada: {{ movie.cast }},<br /></span>
+      Premiera: {{ movie.release_date }}, Czas trwania: {{ movie.duration }}
+    </span><br>
+    <label for="hours" *ngIf="movie" class="order"><strong>Zamów Bilet!</strong></label>
+      <span id="hours" class="hours" >
+        <ul *ngFor="let hour of movie.hours">
+          <li>{{ hour.hour }}</li>
+        </ul>
+      </span>
+  </span>
+</div>

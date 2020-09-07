@@ -1,0 +1,105 @@
+{
+    "films":[
+        {
+            "id":1,
+            "title": "Tent",
+            "duration": 150,
+            "production": "Wielka Brytania, USA, Kanada",
+            "description": "Christopher Nolan przedstawia swój kolejny projekt. 'Tenet' to widowiskowy film akcji, w którym szpiegowski klimat zderza się z koncepcją podróży w czasie. Całość jak zwykle owiana jest mgiełką tajemnicy. W rolach głównych między innymi Robert Pattinson i Elizabeth Debicki.",
+            "direction": "Christopher Nolan",
+            "cast":"Robert Pattinson, Elizabeth Debicki, Aaron Taylor-Johnson",
+            "release_date":"26.08.2020",
+            "hours": [
+                {"hour": "13:00"},
+                {"hour": "15:00"}
+            ],
+            "cover": "https://fwcdn.pl/fpo/16/53/831653/7926046.3.jpg",
+            "year":2020,
+            "note": 5.0
+        },
+        {
+            "id":2,
+            "title": "Nowi mutanci",
+            "duration": 94,
+            "production": "USA",
+            "description": "Twentieth Century Fox we współpracy z Marvel Entertainment przedstawia „Nowych mutantów” (The New Mutants) , oryginalny horror thriller, którego akcja rozgrywa się w odciętym od świata szpitalu, gdzie na obserwacji psychiatrycznej przetrzymywana jest grupa młodych mutantów.Gdy dojdzie do serii dziwnych, niewytłumaczalnych zdarzeń, nowi mutanci zmuszeni będą stanąć do walki o przetrwanie, a decydującą próbę przejdą zarówno ich nowo nabyte moce, jak i więzy przyjaźni. Reżyseria: Josh Boone, w rolach głównych: Maisie Williams, Anya Taylor-Joy, Charlie Heaton, Alice Braga, Blu Hunt i Henry Zaga.",
+            "direction": "Josh Boone",
+            "cast":"Maisie Williams, Anya Taylor-Joy, Antonio Banderas",
+            "release_date":"26.08.2020",
+            "hours": [
+                {"hour": "11:30"},
+                {"hour": "19:00"}
+            ],
+            "cover": "https://ftmp.helios.pl/Get/file/mvpstr/18387/1598354721",
+            "year":2020,
+            "note": 4.4
+        },
+        {
+            "id":3,
+            "title": "Zieja",
+            "duration": 113,
+            "production": "Polska",
+            "description": "Lata 70-te. Major SB chce 'kupić' naiwnego księdza Zieję i zrobić z niego agenta, który skompromituje opozycję. Przesłuchania księdza stają się naturalnym pretekstem do wędrówki przez historię Polski wieku dwudziestego - od wojny bolszewickiej 1920 roku, przez II wojnę światową, aż do czasów współczesnych. Okazuje się, że naiwny ksiądz Zieja to mądry buntownik. Nie godził się na świat, w którym żył. Wyprzedzał swoją epokę. Samotna wędrówka bez paszportu do Rzymu w latach 30-tych, była myśleniem o Unii Europejskiej. Udzielenie katolickiego pogrzebu samobójczyni (w latach 20-tych ubiegłego wieku), to sprzeciw wobec kościelnych reguł. Głoszenie hasła 'nigdy nie zabijaj nikogo, nawet swoich wrogów' w czasie II wojny światowej było sprzeciwem wobec mitów patriotycznych i zapowiadało modne później postawy pacyfistyczne. Zieja stawiał na szali swoje życie i wolność, w imię wyznawanych wartości moralnych, etycznych i religijnych. Film 'Zieja' wyrasta z nurtu polskiego katolicyzmu, który jest oparty na wysokich standardach etycznych, ubóstwie i tolerancji oraz szacunku i miłości do drugiego człowieka.",
+            "direction": "Wojciech Lepianka",
+            "cast":"Andrzej Seweryn, Mateusz Więcławek, Zbigniew Zamachowski, Sonia Bohosiewicz",
+            "release_date":"28.08.2020",
+            "hours": [
+                {"hour": "9:30"},
+                {"hour": "16:30"}
+            ],
+            "cover": "https://ftmp.helios.pl/Get/file/mvpstr/17814/1582108516",
+            "year":2020,
+            "note": 4.6
+        },
+        {
+            "id":4,
+            "title": "O czym marzą zwierzęta",
+            "duration": 90,
+            "production": "Australia",
+            "description": "W odległym zakątku Ziemi, z dala od oczu ciekawskich ludzi, leży Sanktuarium. To miejsce, gdzie zagrożone gatunki zwierząt znajdują schronienie, a źródłem szczęścia i dobrobytu jest magiczne drzewo, które spełnia życzenia. W krainie tej mieszka mała oposica Klara, której największym marzeniem jest zobaczyć śnieg, lepić bałwany i rzucać się śnieżkami z przyjaciółmi. Kiedy nadchodzi dzień, w którym mieszkańcy Sanktuarium zbierają się pod konarami magicznego drzewa – Klara zrywa ostatni liść i wypowiada na głos swe mroźne pragnienie. Niestety w efekcie niefortunnej zachcianki cała sekretna kraina zostaje zamrożona. Teraz Klara, wraz z siostrą Paulą i mądrym jaszczurem Yarrą, musi wyruszyć na długą i pełną niebezpieczeństw wędrówkę, aby przywrócić dawny blask Sanktuarium. Czasu jest jednak niewiele, bowiem mieszkańcom krainy grozi wyginięcie, a nad światem zwierząt gromadzą się niepokojąco ciemne chmury.",
+            "direction": "Ricard Cusso",
+            "cast":null,
+            "release_date":"21.08.2020",
+            "hours": [
+                {"hour": "10:30"},
+                {"hour": "18:00"}
+            ],
+            "cover": "https://ftmp.helios.pl/Get/file/mvpstr/19109/1596783601",
+            "year":2019,
+            "note": 3.5
+        },
+        {
+            "id":5,
+            "title": "Scooby-doo",
+            "duration": 94,
+            "production": "USA",
+            "description": "W pierwszej kinowej animacji ze Scooby-Doo w roli głównej poznamy nowe wątki, dotyczące pochodzenia uroczego psiaka. Zobaczymy też najbardziej zawiłe śledztwo w historii Tajemniczej Spółki. 'Scooby-Doo!' pokazuje początki wieloletniej przyjaźni Scooby’ego i Kudłatego. Dowiemy się, jak wspólnie z Fredem, Velmą i Daphne założyli oni słynną Tajemniczą Spółkę. Teraz, po setkach śledztw i przygód, Scooby i jego gang stają w obliczu największego i najtrudniejszego wyzwania. Ktoś chce uwolnić psa z zaświatów, Cerbera. Młodzi detektywi starają się powstrzymać globalną 'apsokalipsę'. Jednocześnie odkrywają sekrety z przeszłości Scooby’ego i poznają jego przeznaczenie – wspanialsze, niż ktokolwiek sobie wyobrażał.",
+            "direction": "Tony Cervone",
+            "cast":null,
+            "hours": [
+                {"hour": "20:30"}
+            ],
+            "release_date":"24.07.2020",
+            "cover": "https://ftmp.helios.pl/Get/file/mvpstr/18573/1593790191",
+            "year":2020,
+            "note": 4.7
+        },
+        {
+            "id":6,
+            "title": "Harry Potter i Zakon Feniksa",
+            "duration": 138,
+            "production": "Wielka Brytania, USA",
+            "description": "Mija długie samotne lato, które Harry Potter spędza w oczekiwaniu na rozpoczęcie piątego roku nauki w Szkole Magii i Czarodziejstwa w Hogwarcie. Musi znosić wspólne mieszkanie ze znienawidzonymi Dursleyami, a jakby tego było mało, jego koledzy i najbliżsi przyjaciele, Ron Weasley i Hermiona Granger, przez całe wakacje nie przysłali mu nawet jednej kartki. Tak naprawdę nikt nie odezwał się do niego od czasu jego konfrontacji ze złym Lordem Voldemortem. Owszem, Harry w końcu dostaje list, ale nie taki, jakiego by oczekiwał. Otrzymuje zawiadomienie o tym, że zostanie wyrzucony z Hogwartu za bezprawne użycie magii poza szkołą i to jeszcze w obecności Mugola, wstrętnego kuzyna Dudleya. I na nic zda się tłumaczenie, że zrobił to w obronie przed niesprowokowanym i niewyjaśnionym atakiem dwóch dementorów.",
+            "direction": "David Yates",
+            "cast":"Daniel Radcliffe, Rupert Grint, Emma Watson",
+            "release_date":"27.07.2007",
+            "hours": [
+                    {"hour": "12:00"},
+                    {"hour": "21:00"}
+                ],
+            "cover": "https://ftmp.helios.pl/Get/file/mvpstr/4145/1419949354",
+            "year":2007,
+            "note": 4.9
+        }
+    ]
+}
