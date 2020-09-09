@@ -1,0 +1,51 @@
+.shortDescription{
+    width:100vw;
+    height: 10vh;
+    display:block;
+    position: relative;
+    @mixin centerInfo{
+        position: absolute;
+        left:50%;
+        top:50%;
+        transform:translateX(-50%) translateY(-50%);
+    }
+    .title, .time{
+        @include centerInfo;
+    }
+    .time{
+        margin-top:40px;
+    }
+
+    
+}
+.gridContainer{
+    display: grid;
+    grid-template-columns: repeat(10, 60px);
+    justify-content: center;
+    flex-direction: row;
+    .place{
+        width: 50px;
+        height: 50px;
+        border: 2px solid #102c46;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        cursor:pointer;
+        
+    }
+    .place:hover{
+        background-color: #102c46;
+        color:white
+    }
+}
+
+.free{
+    background-color:green;
+}
+
+.taken{
+    background-color:red;
+}
+.active{
+    background-color:blue;
+}

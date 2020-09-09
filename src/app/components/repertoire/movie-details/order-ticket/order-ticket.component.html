@@ -1,1 +1,10 @@
-<p>order-ticket works!</p>
+<div class="shortDescription">
+    <h1 class="title"><strong>{{movie.title}}</strong></h1><br>
+    <p class="time">{{time.hour}}</p>
+</div>
+<hr>
+<div class="gridContainer">
+    <ul *ngFor="let place of time.places; let i=index;">
+        <li class="place" [ngClass]="{free: place.free}" [ngClass]="{active: status}" (click)="changeStatus()" [disabled]="!place.free">{{place.number}}</li>
+    </ul>
+</div>

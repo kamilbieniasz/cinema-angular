@@ -1,3 +1,4 @@
+import { OrderTicketComponent } from './components/repertoire/movie-details/order-ticket/order-ticket.component';
 import { MovieDetailsComponent } from './components/repertoire/movie-details/movie-details.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -12,6 +13,7 @@ const routes: Routes = [
     {path: 'best', component: BestComponent},
     {path: 'repertoire', component: RepertoireComponent},
     {path: 'movie/:id', component: MovieDetailsComponent},
+    {path: 'orders', component: OrderTicketComponent},
     {path: 'price-list', component: PriceListComponent},
     {path: 'special-offers', component: SpecialOffersComponent},
     {path: 'about-us', component: AboutUsComponent}

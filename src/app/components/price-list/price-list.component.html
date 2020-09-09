@@ -1,1 +1,37 @@
-<p>price-list works!</p>
+<main>
+    <div class="price-list" *ngFor="let price of priceList; ">
+        <span class="title">Ceny biletów:</span>
+        <span>Bilet normalny: {{price.normalTicket}}zł</span><br><hr>
+        <span class="even">Bilet familijny: {{price.familyTicket}}zł</span><br><hr>
+        <span>Bilet ulgowy: {{price.reducedTicket}}zł*</span><br><hr>
+        <span class="even">Bilet w tanią środę: {{price.wednesdayTicket}}zł*</span><br><hr>
+        <span>Bilet na noc horrorów: {{price.horrorsNightTicket}}zł*</span><br><hr>
+        <span class="even">Bilet na filmy z oznaczeniem classic: {{price.classicMovieTicket}}zł*</span>
+    </div>
+    <div class="discount">
+        <span>
+            Im wcześniej kupisz bilet tym lepiej!
+        </span>
+        <p class="normalTicket">(Dotyczy tylko biletów normalnych)</p>
+        
+        <table>
+            <tr>
+                <th>Dzień wcześniej</th>
+                <th>Dwa dni wcześniej</th>
+                <th>Trzy dni wcześniej</th>
+            </tr>
+            <tr>
+                <td>23zł</td>
+                <td>21,50zł</td>
+                <td>20zł</td>
+            </tr>
+        </table>
+        
+        <span class="info">
+            <p>*Bilet ulgowy - dla studentów i uczniów za okazaniem legitymacji</p>
+            <p>*Bilet w tanią środę - w każdą środę w naszym kinie bilety są tańsze!</p>
+            <p>*Bilet na noc horrorów - w każdy weekend organizujemy noc horrorów w okazyjnej cenie!</p>
+            <p>*Bilet na filmy z oznaczeniem classic - z szacunku do klasyków wszystkie klasyczne filmy taniej!</p>
+        </span>
+    </div>
+</main>

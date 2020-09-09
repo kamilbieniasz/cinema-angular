@@ -1,4 +1,4 @@
-import { Movie } from './../interface/movieInterface';
+import { Movie, Hour } from './../interface/movieInterface';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -7,6 +7,9 @@ import { Injectable } from '@angular/core';
 export class MovieDetailsService {
 
   currentMovie: Movie;
+  time: Hour;
+  place;
+  curentDay;
 
   constructor() { }
 

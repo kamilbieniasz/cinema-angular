@@ -1,45 +1,27 @@
 <main>
-
   <div class="sliderContainer">
     <span class="type">Najnowsze</span>
-    <ngb-carousel *ngIf="images">
-      <ng-template ngbSlide>
-        <div class="picsum-img-wrapper">
-          <img [src]="images[0]" alt="Random first slide" />
-        </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <div class="picsum-img-wrapper">
-          <img [src]="images[1]" alt="Random second slide" />
-        </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <div class="picsum-img-wrapper">
-          <img [src]="images[2]" alt="Random third slide" />
-        </div>
-      </ng-template>
+    <ngb-carousel *ngIf="imagesLatest">
+      <ng-container *ngFor="let latest of latest; let i = index">
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img (click)="sendMovie(latest)" [routerLink]="['/movie', latest.id]" [src]="imagesLatest[i]" alt="Random first slide" />
+          </div>
+        </ng-template>
+      </ng-container>
     </ngb-carousel>
   </div>
 
   <div class="sliderContainer">
     <span class="type">Najlepsze</span>
-    <ngb-carousel *ngIf="images">
+    <ngb-carousel *ngIf="imagesBest">
+      <ng-container *ngFor="let best of best; let i = index">
       <ng-template ngbSlide>
         <div class="picsum-img-wrapper">
-          <img [src]="images[0]" alt="Random first slide" />
+          <img (click)="sendMovie(best)" [routerLink]="['/movie', best.id]" [src]="imagesBest[i]" alt="Random first slide" />
         </div>
       </ng-template>
-      <ng-template ngbSlide>
-        <div class="picsum-img-wrapper">
-          <img [src]="images[1]" alt="Random second slide" />
-        </div>
-      </ng-template>
-      <ng-template ngbSlide>
-        <div class="picsum-img-wrapper">
-          <img [src]="images[2]" alt="Random third slide" />
-        </div>
-      </ng-template>
+    </ng-container>
     </ngb-carousel>
   </div>
-
 </main>

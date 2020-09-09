@@ -2,8 +2,7 @@
   <img class="movieCover" [src]="movie.cover" [alt]="movie.title" />
   <span class="movieInfo">
     <span class="title"
-      ><strong>{{ movie.title }}</strong></span
-    >
+      ><strong>{{ movie.title }}</strong></span>
     <span class="description">{{ movie.description }}</span>
     <span class="otherInfo">
       Reżyserii: {{ movie.direction }},<br />
@@ -12,8 +11,8 @@
     </span><br>
     <label for="hours" *ngIf="movie" class="order"><strong>Zamów Bilet!</strong></label>
       <span id="hours" class="hours" >
-        <ul *ngFor="let hour of movie.hours">
-          <li>{{ hour.hour }}</li>
+        <ul *ngFor="let hour of hours.hours">
+          <li [routerLink]="['/orders']" (click)="sendData(hour)" >{{ hour.hour }}</li>
         </ul>
       </span>
   </span>

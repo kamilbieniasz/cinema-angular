@@ -1,0 +1,12 @@
+{
+  "price": [
+    {
+      "normalTicket": 25,
+      "familyTicket": 22,
+      "reducedTicket": 17,
+      "wednesdayTicket": 15,
+      "horrorsNightTicket": 30,
+      "classicMovieTicket": 10
+    }
+  ]
+}
