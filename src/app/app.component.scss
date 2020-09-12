@@ -1,3 +1,6 @@
+*{
+    overflow-y: hidden;
+}
 .navbar{
     width:100vw;
     height:10vh;
@@ -23,6 +26,9 @@
         li:hover{
             transform:scale(1.2);
             transition: transform .15s;
+        }
+        li:focus{
+            outline:none;
         }
         .verticalLine{
             width: 0px;
