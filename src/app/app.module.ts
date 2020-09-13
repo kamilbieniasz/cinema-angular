@@ -8,10 +8,10 @@ import { AppComponent } from './app.component';
 import { RepertoireComponent } from './components/repertoire/repertoire.component';
 import { PriceListComponent } from './components/price-list/price-list.component';
 import { SpecialOffersComponent } from './components/special-offers/special-offers.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
 import { BestComponent } from './components/best/best.component';
 import { MovieDetailsComponent } from './components/repertoire/movie-details/movie-details.component';
 import { OrderTicketComponent } from './components/repertoire/movie-details/order-ticket/order-ticket.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 @NgModule({
@@ -20,10 +20,10 @@ import { OrderTicketComponent } from './components/repertoire/movie-details/orde
     RepertoireComponent,
     PriceListComponent,
     SpecialOffersComponent,
-    AboutUsComponent,
     BestComponent,
     MovieDetailsComponent,
-    OrderTicketComponent
+    OrderTicketComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
