@@ -3,7 +3,8 @@
 }
 .navbar{
     width:100vw;
-    height:10vh;
+    min-height:10vh;
+    min-height:55px;
     background: linear-gradient(to right, #102C46, #175185 , #102C46);
     display:flex;
     justify-content: center;
@@ -42,9 +43,23 @@
 footer{
     width:100vw;
     height:5vh;
+    min-height:40px;
+    flex-shrink: 0;
     background: linear-gradient(to right, #102C46, #175185 , #102C46);
     display:flex;
     justify-content: center;
     align-items: center;
     color:white;
+}
+@media screen and (max-width: 870px){
+    .navbar{
+        width: 100vw;
+        ul{
+            flex-direction: column;
+            height:auto;
+            li:hover{
+                overflow: none;
+            }
+        }
+    }
 }

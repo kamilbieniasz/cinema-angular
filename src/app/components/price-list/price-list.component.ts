@@ -15,19 +15,10 @@ export class PriceListComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getPriceList().subscribe( (data) => {
-      this.priceList = data.price;
-      console.log(data.price.normalTicket);
+      this.priceList = data;
+      console.log(data.normalTicket);
     });
-    //this.setPriceList();
     console.log(this.priceList);
-  }
-
-  setPriceList(): void{
-    this.service.getPriceList().subscribe( (data) => {
-      this.priceList = data.price[0];
-      console.log(data.price[0].normalTicket);
-    });
-    console.log("Price list: " +this.priceList);
   }
 
 }

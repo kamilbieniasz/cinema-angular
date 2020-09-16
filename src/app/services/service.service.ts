@@ -1,16 +1,20 @@
-import { Movie } from './../interface/movieInterface';
+import { Movie } from 'src/app/interface/movieInterface';
 import { Price } from 'src/app/interface/priceListInterface';
+import { Date } from 'src/app/interface/movieInterface';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { fromEventPattern, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
 
-  private urlMovie = './assets/cinema-db.json';
-  private urlPriceList = './assets/priceList-db.json';
+  private url = 'https://cinemaniak-db.herokuapp.com';
+  private urlPriceList = 'https://cinemaniak-db.herokuapp.com/price';
+  currentDay;
 
   constructor(private http: HttpClient) { }
 
@@ -24,12 +28,21 @@ export class ServiceService {
   //   .then(response => response);
   // }
 
-  async getJson(): Promise<Movie[]>{
-    const response = await this.http.get<any>(this.urlMovie).toPromise();
-    return response.movies;
+  async getMovies(): Promise<Movie[]>{
+    const response = await this.http.get<any>(this.url + '/movies').toPromise();
+    return response;
+  }
+
+  getMovieById(id: string): Observable<Movie>{
+    return this.http.get<Movie>(this.url + '/movies/' + id);
+
+  }
+
+  patchMovie(movie: Partial<Movie>): Observable<Partial<Movie>>{
+    return this.http.patch(this.url + '/movies/' + movie.id, movie).pipe(tap(console.log));
   }
 
   public getPriceList(): Observable<any>{
-    return this.http.get(this.urlPriceList);
+    return this.http.get(this.url + '/price');
   }
 }

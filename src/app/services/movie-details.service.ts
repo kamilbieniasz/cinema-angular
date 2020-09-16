@@ -10,6 +10,7 @@ export class MovieDetailsService {
   time: Hour;
   place;
   curentDay;
+  hours
 
   constructor() { }
 

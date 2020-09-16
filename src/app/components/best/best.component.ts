@@ -25,7 +25,7 @@ export class BestComponent implements OnInit {
   constructor(private service: ServiceService, private movieDetailsService: MovieDetailsService) { }
 
   async ngOnInit() {
-    this.movies = await this.service.getJson();
+    this.movies = await this.service.getMovies();
     console.log(this.movies);
     this.sortBestMovies();
     this.sortLatestsMovies();

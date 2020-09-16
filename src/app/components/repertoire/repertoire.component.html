@@ -1,22 +1,29 @@
 <div class="date">
-    <ul *ngFor="let date of date; let i = index">
+    <ul class="menuForDesktop" *ngFor="let date of date; let i = index">
         <li (click)="selectedItem(i)" (click)="getDay(date.getDay())" (click)="sortMovie()" [ngClass]="{active: selectedItemId == i}">
             {{date.getDate()}}<br>
             {{dayName[date.getDay()]}}<br>
             {{monthName[date.getMonth()]}}
         </li>
     </ul>
+    <select class="menuForPhone">
+        <option *ngFor="let date of date; let i = index" (click)="selectedItem(i)" (click)="getDay(date.getDay())" (click)="sortMovie()" [ngClass]="{active: selectedItemId == i}">
+            {{date.getDate()}}<br>
+            {{dayName[date.getDay()]}}<br>
+            {{monthName[date.getMonth()]}}
+        </option>
+    </select>
 </div>
 <hr/>
 <div class="filmContainer">
-    <ul *ngFor="let movie of currentMovie">
+    <ul *ngFor="let movie of currentMovies">
         <li>
             <span class="movieInfo">
             <img [src]="movie.cover"/>
             {{movie.title}}
             Czas trwania: {{movie.duration}} min.
             </span>
-            <button (click)="sendMovie(movie)" (click)="changeCurrentDay()" [routerLink]="['/movie', movie.id]">Zobacz szczegóły</button>
+            <button (click)="changeCurrentDay()" [routerLink]="['/movies', movie.id]">Zobacz szczegóły</button>
         </li>
     </ul>
 </div>

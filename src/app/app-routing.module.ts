@@ -12,7 +12,7 @@ const routes: Routes = [
     {path: '', redirectTo: '/best', pathMatch: 'full'},
     {path: 'best', component: BestComponent},
     {path: 'repertoire', component: RepertoireComponent},
-    {path: 'movie/:id', component: MovieDetailsComponent},
+    {path: 'movies/:id', component: MovieDetailsComponent},
     {path: 'orders', component: OrderTicketComponent},
     {path: 'price-list', component: PriceListComponent},
     {path: 'special-offers', component: SpecialOffersComponent},

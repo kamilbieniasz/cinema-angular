@@ -1,10 +1,29 @@
-<div class="shortDescription">
+<main *ngIf="movie | async as movie">
+<div class="shortDescription" >
     <h1 class="title"><strong>{{movie.title}}</strong></h1><br>
-    <p class="time">{{time.hour}}</p>
+    <p class="time">{{selectedTime}}</p>
 </div>
 <hr>
-<div class="gridContainer">
-    <ul *ngFor="let place of time.places; let i=index;">
-        <li class="place" [ngClass]="{free: place.free}" [ngClass]="{active: status}" (click)="changeStatus()" [disabled]="!place.free">{{place.number}}</li>
-    </ul>
+<div class="Container">
+    <div class="gridContainer">
+        <ul>
+            <li *ngFor="let place of places; let i=index;"
+                class="place" 
+                id="place" 
+                (click)="selectedItem(i)" 
+                [disabled]="place.free === false" 
+                [ngClass]="{taken: place.free === false,free: place.free === true}">
+            {{place.number}}
+            </li>
+        </ul>
+    </div>
+    <div class="orderInfo">
+        <h3>Informacje o zamówieniu:</h3>
+        <p>Tytuł: {{movie.title}},</p>
+        <p>Data: {{currentDay | date:"dd.MM.yyyy"}},</p>
+        <p>Godzina: {{selectedTime}},</p>
+        <ng-container><p *ngIf="selectedPlaces.length>0">Miejsca:</p><p *ngFor="let selectedPlace of selectedPlaces"> {{selectedPlace.number}}</p></ng-container>
+        <button class="orderBtn" (click)="patchItem()" *ngIf="selectedPlaces.length>0">Zatwierdź zamówienie</button>
+    </div>
 </div>
+</main>

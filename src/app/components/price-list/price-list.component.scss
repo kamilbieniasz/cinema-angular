@@ -13,9 +13,6 @@ main{
             justify-content: center;
             padding:20px;
         }
-        .even{
-            
-        }
         
     }
     .discount{
@@ -54,6 +51,21 @@ main{
             p{
                 margin:0;
                 font-size:15px;
+            }
+        }
+    }
+}
+@media screen and(max-width:870px){
+    main{
+        flex-direction: column;
+        .price-list{
+            width:100vw;
+        }
+        .discount{
+            width:100vw;
+            h5{
+                display:flex;
+                justify-content: center;
             }
         }
     }

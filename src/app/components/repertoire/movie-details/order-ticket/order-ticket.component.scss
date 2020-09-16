@@ -1,51 +1,90 @@
-.shortDescription{
-    width:100vw;
-    height: 10vh;
-    display:block;
-    position: relative;
-    @mixin centerInfo{
-        position: absolute;
-        left:50%;
-        top:50%;
-        transform:translateX(-50%) translateY(-50%);
-    }
-    .title, .time{
-        @include centerInfo;
-    }
-    .time{
-        margin-top:40px;
-    }
-
-    
+.shortDescription {
+  width: 100vw;
+  height: 10vh;
+  display: block;
+  position: relative;
+  @mixin centerInfo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  .title,
+  .time {
+    @include centerInfo;
+  }
+  .time {
+    margin-top: 40px;
+  }
 }
-.gridContainer{
-    display: grid;
-    grid-template-columns: repeat(10, 60px);
-    justify-content: center;
-    flex-direction: row;
-    .place{
+.Container {
+  display: flex;
+  justify-content: space-around;
+
+  .gridContainer {
+    
+    ul {
+      display: grid;
+      grid-template-columns: repeat(10, 60px);
+      grid-gap:10px;
+      justify-content: center;
+      flex-direction: row;
+      .place {
         width: 50px;
         height: 50px;
         border: 2px solid #102c46;
-        display:flex;
+        display: flex;
         justify-content: center;
         align-items: center;
-        cursor:pointer;
-        
+        cursor: pointer;
+      }
+      .place:hover {
+        background: linear-gradient(to right, #102c46, #175185, #102c46);
+        color: white;
+      }
     }
-    .place:hover{
-        background-color: #102c46;
-        color:white
+  }
+  .orderInfo {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    ng-container {
+      display: flex;
+      flex-direction: row;
     }
-}
+    .orderBtn {
+      width: 200px;
+      height: 40px;
+      border-radius: 10px;
+      background: transparent;
+      border: 2px solid #102c46;
+      margin: 20px;
+    }
+    .orderBtn:hover {
+      background: linear-gradient(to right, #102c46, #175185, #102c46);
+      color: white;
+      transform: scale(1.1);
+    }
+    .orderBtn:focus {
+      outline: none;
+    }
+  }
 
-.free{
-    background-color:green;
-}
+  .free {
+    background-color: green;
+  }
 
-.taken{
-    background-color:red;
-}
-.active{
-    background-color:blue;
+  .taken {
+    background-color: red;
+    // pointer-events: none;
+  }
+  .taken-before {
+    background-color: yellow;
+    pointer-events: none;
+  }
+  .selected {
+    background-color: orange;
+  }
 }

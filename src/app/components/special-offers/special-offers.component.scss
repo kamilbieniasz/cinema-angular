@@ -6,6 +6,8 @@ main{
         justify-content: center;
         display:flex;
         list-style-type: none;
+        position:sticky;
+        top:0px;
         li{
             margin:30px;
             width:200px;
