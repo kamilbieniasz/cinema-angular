@@ -54,5 +54,17 @@ export class SpecialOffersComponent implements OnInit {
   scorllToElement(elementId: string): void{
     this.viewprotScroller.scrollToAnchor(elementId);
   }
+
+  changeNavBar(): void{
+    const navbar = document.querySelector('main > .navbar');
+    if(scrollY > 117){
+      navbar.classList.remove('normalNavBar');
+      navbar.classList.add('navbarOnScroll');
+    }
+    else if(scrollY <117){
+      navbar.classList.remove('navbarOnScroll')
+      navbar.classList.add('normalNavBar');
+    }
+  }
 }
 

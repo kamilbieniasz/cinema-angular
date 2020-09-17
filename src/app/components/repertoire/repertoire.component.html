@@ -18,10 +18,12 @@
 <div class="filmContainer">
     <ul *ngFor="let movie of currentMovies">
         <li>
-            <span class="movieInfo">
-            <img [src]="movie.cover"/>
-            {{movie.title}}
-            Czas trwania: {{movie.duration}} min.
+            <span class="movieInfoContainer">
+                <img [src]="movie.cover"/>
+                <span class="movieDescription">
+                <p>{{movie.title}}</p>
+                <p>Czas trwania: {{movie.duration}} min.</p>
+                </span>
             </span>
             <button (click)="changeCurrentDay()" [routerLink]="['/movies', movie.id]">Zobacz szczegóły</button>
         </li>

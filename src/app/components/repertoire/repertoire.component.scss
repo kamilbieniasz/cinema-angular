@@ -26,6 +26,9 @@
         border-radius:10px;
         margin: 40px;
     }
+    .menuForPhone:focus{
+        outline:none;
+    }
 }
 
 .filmContainer{
@@ -75,6 +78,28 @@
         }
         .menuForPhone{
             display:flex;
+        }
+    }
+    .filmContainer{
+        ul{
+            li{
+                width:95vw;
+                height:auto;
+                font-size: 12px;
+                .movieInfoContainer{
+                    display:flex;
+                    .movieDescription{
+                        display:flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        p{
+                            margin:0;
+                            padding:0;
+                        }
+                    }
+                }
+            }
         }
     }
 }

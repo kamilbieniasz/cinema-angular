@@ -16,8 +16,6 @@
       display: flex;
       justify-content: center;
     }
-    .description {
-    }
     .otherInfo {
       padding-top: 20px;
     }
@@ -53,6 +51,16 @@
           color: white;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width:800px){
+  .movieDetailsContainer{
+    height:auto;
+    flex-direction: column;
+    .movieInfo{
+      width:80vw;
     }
   }
 }

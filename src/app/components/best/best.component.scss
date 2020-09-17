@@ -43,3 +43,25 @@ main {
         }
     }
 }
+@media screen and (max-width:1000px){
+    main{
+        height:auto;
+        flex-direction: column;
+
+        .sliderContainer{
+            margin:50px;
+            width: auto;
+            height:600px;
+            border-radius: 20px;
+
+            ngb-carousel{
+                width: 300px;
+                height: auto;
+            }
+            img{
+                width: 270px;
+                height: auto;
+            }
+        }
+    }
+}

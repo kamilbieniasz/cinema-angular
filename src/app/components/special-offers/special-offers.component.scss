@@ -11,7 +11,7 @@ main{
         li{
             margin:30px;
             width:200px;
-            height:50px;
+            height:30px;
             font-size:20px;
             cursor: pointer;
             display:flex;
@@ -68,6 +68,44 @@ main{
                     margin-top:0px;
                 }
             }
+        }
+    }
+}
+.navbarOnScroll{
+    background: linear-gradient(to right, #102C46, #175185 , #102C46);
+    color: white;
+    transition: .2s ease-in-out;
+}
+.normalNavBar{
+    background-color: transparent;
+    color:black;
+    transition: .2s ease-in-out;
+}
+@media screen and(max-width:1332px) and (min-width:883px) {
+    main{
+        .navbar{
+            li{
+                width:150px;
+                margin:10px;
+            }
+        }
+    }
+}
+@media screen and(max-width:882px){
+    main{
+        .navbar{
+            flex-direction: column;
+            position:relative;
+        }
+    }
+    .navbarOnScroll{
+        background:transparent;
+        color:black;
+    }
+    .Container{
+        padding: 10px;
+        p{
+            width:100vw;
         }
     }
 }
