@@ -117,6 +117,7 @@
         width: 100vw;
         position: fixed;
         left:-100vw;
+        overflow-y: hidden;
         ul{
             flex-direction: column;
             height:auto;
