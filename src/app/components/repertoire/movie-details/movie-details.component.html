@@ -1,8 +1,9 @@
 <div class="movieDetailsContainer" *ngIf="movie | async as movie">
   <img class="movieCover" [src]="movie.cover" [alt]="movie.title" />
   <span class="movieInfo">
-    <span class="title"
-      ><strong>{{ movie.title }}</strong></span>
+    <span class="title">
+      <strong>{{ movie.title }}</strong>
+    </span>
     <span class="description">{{ movie.description }}</span>
     <span class="otherInfo">
       Reżyserii: {{ movie.direction }},<br />
@@ -12,7 +13,7 @@
     <label for="hours" *ngIf="movie" class="order"><strong>Zamów Bilet!</strong></label>
       <span id="hours" class="hours" >
         <ul *ngFor="let hour of hours.hours">
-          <li [routerLink]="['/orders']" (click)="sendData(hour)">{{hour.hour}}</li>
+          <li tabindex="1" [routerLink]="['/orders']" (click)="sendData(hour)">{{hour.hour}}</li>
         </ul>
       </span>
   </span>

@@ -55,12 +55,12 @@ main {
             border-radius: 20px;
 
             ngb-carousel{
-                width: 300px;
-                height: auto;
+                max-width: 320px;
+                
             }
             img{
-                width: 270px;
-                height: auto;
+                max-width: 320px;
+                height:200px;
             }
         }
     }

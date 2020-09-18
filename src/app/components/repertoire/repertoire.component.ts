@@ -32,7 +32,7 @@ export class RepertoireComponent implements OnInit {
     this.day();
     //console.log(this.movies);
     this.getDay(this.currentDay);
-    this.sortMovie();
+    this.sortMovieForList();
     
     //console.log(this.sortMovie());
     this.date.forEach( (date) =>{
@@ -65,18 +65,10 @@ export class RepertoireComponent implements OnInit {
     this.movieDetailsService.setCurrentMovie(currentMovie);
   }
 
-  sortMovie(): void{
+  sortMovieForList(): void{
     console.log("aktualny dzien"+this.currentDay);
-    //console.log(this.date[this.currentDay].getDay());
     console.log(this.selectedItemId);
     this.currentMovies = [];
-    // console.log(this.movies[3].date[0].day);
-    // console.log(this.date[0].getDay());
-    // if(this.movies[2].date[0].day === this.date[0].getDay()){
-    //   return this.movies[2];
-    // }else{
-    //   console.log("false");
-    // };
     this.movies.forEach( (movie) => {
       console.log("title: " + movie.title + " day 1: " + movie.date[0].day + " day 2: " + movie.date[1].day);
       if(movie.date[0].day === this.date[this.selectedItemId].getDay() || movie.date[1].day === this.date[this.selectedItemId].getDay()){
@@ -88,6 +80,23 @@ export class RepertoireComponent implements OnInit {
     })
 
     console.log(this.currentMovies);
+  }
+
+  sortMovieForSelect({value}): void{
+    console.log(value);
+    this.currentMovies = [];
+    this.movies.forEach( (movie) => {
+      console.log("title: " + movie.title + " day 1: " + movie.date[0].day + " day 2: " + movie.date[1].day);
+      if(movie.date[0].day === this.date[value].getDay() || movie.date[1].day === this.date[value].getDay()){
+        this.currentMovies.push(movie);
+      }
+      else{
+        return false;
+      }
+    })
+
+    console.log(this.currentMovies);
+
   }
 
   changeCurrentDay(): void{

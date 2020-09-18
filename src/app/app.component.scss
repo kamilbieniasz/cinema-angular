@@ -77,14 +77,14 @@
         }
         .verticalLine{
             width: 0px;
-            height: 80%;
+            height: 80px;
             float: left; 
-            border: 1px inset
+            border: 1px inset;
         }
         
     }
 }
-footer{
+.footer{
     width:100vw;
     height:5vh;
     min-height:40px;
@@ -115,7 +115,7 @@ footer{
 @media screen and (max-width: 870px){
     .navbar{
         width: 100vw;
-        position: absolute;
+        position: fixed;
         left:-100vw;
         ul{
             flex-direction: column;
@@ -133,5 +133,7 @@ footer{
     }
     .hamburgerBtn{
         display:flex;
+        position: fixed;
     }
+
 }

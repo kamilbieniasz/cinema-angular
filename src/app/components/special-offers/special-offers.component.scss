@@ -93,19 +93,30 @@ main{
 }
 @media screen and(max-width:882px){
     main{
+        margin:0;
+        padding:0;
         .navbar{
             flex-direction: column;
             position:relative;
+        }
+        .Container{
+            padding-left:0;
+            width:100vw;
+            display:flex;
+            flex-direction: column;
+            height:auto;
+            .title{
+                margin-bottom:40px;
+            }
+            p{
+                margin:0;
+                width:95%;
+                padding:10px;
+            }
         }
     }
     .navbarOnScroll{
         background:transparent;
         color:black;
-    }
-    .Container{
-        padding: 10px;
-        p{
-            width:100vw;
-        }
     }
 }
