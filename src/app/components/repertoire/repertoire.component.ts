@@ -33,7 +33,7 @@ export class RepertoireComponent implements OnInit {
     //console.log(this.movies);
     this.getDay(this.currentDay);
     this.sortMovieForList();
-    
+    //this.sortMovieForSelect();
     //console.log(this.sortMovie());
     this.date.forEach( (date) =>{
       console.log(date.getDay());
@@ -50,6 +50,7 @@ export class RepertoireComponent implements OnInit {
   }
 
   selectedItem(index): void{
+    console.log(index);
     this.selectedItemId = index;
   }
   
@@ -79,29 +80,43 @@ export class RepertoireComponent implements OnInit {
       }
     })
 
+    this.changeCurrentDay(this.selectedItemId);
     console.log(this.currentMovies);
   }
 
   sortMovieForSelect({value}): void{
-    console.log(value);
+    // console.log("aktualny dzien"+this.currentDay);
+    // console.log(value);
+    // console.log("date: " + date);
+    const tab = value.split(',');
+    console.log(tab);
+    const id = tab[0];
+    const date = new Date(Date.parse(tab[1]));
+    console.log(date.getDay());
+    this.getDay( date.getDay());
+    console.log(this.currentDay);
+    
+    // console.log(id);
     this.currentMovies = [];
+    console.log(this.date[id].getDay());
     this.movies.forEach( (movie) => {
       console.log("title: " + movie.title + " day 1: " + movie.date[0].day + " day 2: " + movie.date[1].day);
-      if(movie.date[0].day === this.date[value].getDay() || movie.date[1].day === this.date[value].getDay()){
+      if(movie.date[0].day === this.date[id].getDay() || movie.date[1].day === this.date[id].getDay()){
         this.currentMovies.push(movie);
+        console.log(this.currentMovies);
       }
       else{
         return false;
       }
     })
 
-    console.log(this.currentMovies);
+    this.changeCurrentDay(id);
 
   }
 
-  changeCurrentDay(): void{
-    this.service.currentDay = this.date[this.selectedItemId];
-    localStorage.setItem('currentDay', this.date[this.selectedItemId].toString());
+  changeCurrentDay(index): void{
+    this.service.currentDay = this.date[index];
+    localStorage.setItem('currentDay', this.date[index].toString());
   }
 
 

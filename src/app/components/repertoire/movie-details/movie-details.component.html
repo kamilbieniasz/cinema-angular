@@ -13,7 +13,7 @@
     <label for="hours" *ngIf="movie" class="order"><strong>Zamów Bilet!</strong></label>
       <span id="hours" class="hours" >
         <ul *ngFor="let hour of hours.hours">
-          <li tabindex="1" [routerLink]="['/orders']" (click)="sendData(hour)">{{hour.hour}}</li>
+          <li [routerLink]="['/orders']" (click)="sendData(hour)">{{hour.hour}}</li>
         </ul>
       </span>
   </span>

@@ -7,7 +7,7 @@
         </li>
     </ul>
     <select class="menuForPhone" (change)="sortMovieForSelect($event.target)">
-        <option *ngFor="let date of date; let i = index" value="{{i}}" (click)="selectedItem(i)" (click)="getDay(date.getDay())" [ngClass]="{active: selectedItemId == i}">
+        <option *ngFor="let date of date; let i = index" value="{{i}},{{date}}" (click)="selectedItem(i)" (click)="getDay(date.getDay())" [ngClass]="{active: selectedItemId == i}">
             {{date.getDate()}}<br>
             {{dayName[date.getDay()]}}<br>
             {{monthName[date.getMonth()]}}
@@ -25,7 +25,7 @@
                 <p>Czas trwania: {{movie.duration}} min.</p>
                 </span>
             </span>
-            <button (click)="changeCurrentDay()" [routerLink]="['/movies', movie.id]">Zobacz szczegóły</button>
+            <button [routerLink]="['/movies', movie.id]">Zobacz szczegóły</button>
         </li>
     </ul>
 </div>

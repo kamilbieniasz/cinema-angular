@@ -23,9 +23,7 @@ export class MovieDetailsComponent implements OnInit {
   ngOnInit(): void {
     //this.movie = this.movieDetailsService.currentMovie;
     this.currentDay = new Date(Date.parse(localStorage.getItem('currentDay')));
-    
     console.log(this.currentDay);
-    
     // this.hours.hours.forEach( (hour) => {
     //   console.log(hour.hour);
     // });
@@ -33,7 +31,6 @@ export class MovieDetailsComponent implements OnInit {
     localStorage.setItem('currentMovieId', id);
     this.movie = this.service.getMovieById(id);
     this.movie.subscribe(data => console.log(data.date[0].hours[0].hour));
-    
     this.selectedDay();
   }
 
@@ -43,9 +40,12 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   selectedDay(): void{
-    this.movie.subscribe(data => data.date.forEach( ( data ) =>{
+    console.log(this.currentDay.getDay());
+    this.movie.subscribe(data => data.date.forEach( data =>{
+      console.log(data.day);
       if(data.day === this.currentDay.getDay()){
         this.hours = data;
+        console.log(data);
       }
     }))
     this.movieDetailsService.hours = this.hours;

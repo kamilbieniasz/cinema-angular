@@ -25,6 +25,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
+    "angular-split": "^4.0.0",
     "bootstrap": "^4.5.0",
     "ng-media-query": "^1.0.3",
     "rxjs": "~6.5.5",
