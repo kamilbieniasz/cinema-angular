@@ -54,8 +54,7 @@ main {
       height: 480px;
       display:flex;
       align-items: center;
-      //border-radius: 10px;
-
+      box-shadow: none;
       ngb-carousel {
         max-width: 90vw;
         img {
