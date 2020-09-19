@@ -8,11 +8,20 @@ import { hasClassName } from '@ng-bootstrap/ng-bootstrap/util/util';
 })
 export class AppComponent {
   title = 'cinemaV2';
+  private navbar = document.querySelector('.navbar');
+  private hamburgerBtn = document.querySelector('.hamburgerBtn');
 
   hideAndShowMenu(): void{
     const navbar = document.querySelector('.navbar');
     const hamburgerBtn = document.querySelector('.hamburgerBtn');
     navbar.classList.toggle('showMenu');
     hamburgerBtn.classList.toggle('hamburgerBtnActive');
+  }
+
+  hideMenu(): void{
+    const navbar = document.querySelector('.navbar');
+    const hamburgerBtn = document.querySelector('.hamburgerBtn');
+    navbar.classList.remove('showMenu');
+    hamburgerBtn.classList.remove('hamburgerBtnActive');
   }
 }

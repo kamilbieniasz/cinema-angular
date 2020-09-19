@@ -6,6 +6,9 @@
 <hr>
 <div class="Container">
     <div class="gridContainer">
+        <span class="screenContainer">
+            <span class="screen"></span>
+        </span>
         <ul>
             <li *ngFor="let place of places; let i=index;"
                 class="place" 
@@ -25,5 +28,11 @@
         <ng-container><p *ngIf="selectedPlaces.length>0">Miejsca:</p><p *ngFor="let selectedPlace of selectedPlaces"> {{selectedPlace.number}}</p></ng-container>
         <button class="orderBtn" (click)="patchItem()" *ngIf="selectedPlaces.length>0">Zatwierdź zamówienie</button>
     </div>
+</div>
+<hr>
+<div class="legend">
+    <span class="legendPlaceContainer"><span class="place free"></span><p>- Wolne stanowisko</p></span>
+    <span class="legendPlaceContainer"><span class="place taken-before"></span><p>- Zajęte stanowisko</p></span>
+    <span class="legendPlaceContainer"><span class="place taken"></span><p>- Zaznaczone stanowisko</p></span>
 </div>
 </main>
