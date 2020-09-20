@@ -183,3 +183,24 @@
     }
 
 }
+@media screen and (max-width:350px){
+    .hamburgerBtn{
+        .hamburgerBarContainer{
+            width: 25px;
+            .hamburgerBar{
+                &:after{
+                    top:7px;
+                }
+                &:before{
+                    top:-7px;
+                }
+            }
+        }
+    }
+    .hamburgerBtnActive .hamburgerBar:after{
+        transform: translateY(-7px) rotate(-45deg) !important;
+    }
+    .hamburgerBtnActive .hamburgerBar:before{
+        transform: translateY(7px) rotate(45deg) !important;
+    }
+}
