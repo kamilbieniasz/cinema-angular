@@ -5,6 +5,11 @@
 </button>
 <nav class="navbar">
   <ul>
+    <li class="logo" [routerLink]="['/best']">
+      <span class="firstPart">Cine</span>
+      <span class="secondPart">Maniak</span>
+    </li>
+    <span class="verticalLine"></span>
     <li tabindex="1" [routerLink]="['/repertoire']" routerLinkActive="router-link-active" (click)="hideMenu()">Repertuar</li>
     <span class="verticalLine"></span>
     <li tabindex="1" [routerLink]="['/price-list']" routerLinkActive="router-link-active" (click)="hideMenu()">Cennik</li>

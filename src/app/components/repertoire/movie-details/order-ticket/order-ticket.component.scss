@@ -17,6 +17,18 @@
     margin-top: 40px;
   }
 }
+.free {
+  background-color: #175185;
+}
+
+.taken {
+  background-color: orange;
+  // pointer-events: none;
+}
+.taken-before {
+  background-color: #102c46;
+  pointer-events: none;
+}
 .place {
   width: 50px;
   height: 50px;
@@ -27,6 +39,7 @@
   cursor: pointer;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  color:white;
 }
 .legend{
   width:100vw;
@@ -35,18 +48,6 @@
   font-size:30px;
   .legendPlaceContainer{
     display:flex;
-    .free{
-      background-color: green;
-      cursor: auto;
-    }
-    .taken{
-      background-color: orange;
-      cursor: auto;
-    }
-    .taken-before{
-      background-color: red;
-      cursor: auto;
-    }
     p{
       margin-left:15px;
     }
@@ -120,22 +121,6 @@
       outline: none;
     }
   }
-
-  .free {
-    background-color: green;
-  }
-
-  .taken {
-    background-color: orange;
-    // pointer-events: none;
-  }
-  .taken-before {
-    background-color: red;
-    pointer-events: none;
-  }
-  .selected {
-    background-color: orange;
-  }
 }
 @media screen and (max-width: 1020px) and (min-width: 721px){
   .Container{
@@ -194,6 +179,8 @@
 }
 @media screen and (max-width:400px){
   .place{
+    font-size:11px;
+    color:white;
     width:20px;
     height:20px;
   }
