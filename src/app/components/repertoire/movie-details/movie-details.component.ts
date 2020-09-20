@@ -41,6 +41,7 @@ export class MovieDetailsComponent implements OnInit {
 
   selectedDay(): void{
     console.log(this.currentDay.getDay());
+    const currentData = new Date();
     this.movie.subscribe(data => data.date.forEach( data =>{
       console.log(data.day);
       if(data.day === this.currentDay.getDay()){
