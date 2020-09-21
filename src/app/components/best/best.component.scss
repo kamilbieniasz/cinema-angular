@@ -15,11 +15,12 @@ main {
 
   .sliderContainer {
     width: 450px;
-    height: 650px;
+    height: auto;
+    padding: 0 40px 40px;
     background: linear-gradient(to right, #102c46, #175185, #102c46);
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     font-size: 35px;
     color: white;
@@ -35,6 +36,7 @@ main {
     }
 
     .type {
+      padding:30px;
       animation: scaleSpan 0.7s infinite alternate;
     }
 
@@ -47,6 +49,13 @@ main {
         height: 500px;
         cursor: pointer;
       }
+    }
+  }
+}
+@media screen and (max-width:1368px) and (min-width: 1001px){
+  main{
+    .sliderContainer{
+      height:80vh;
     }
   }
 }

@@ -13,7 +13,6 @@ import { ActivatedRoute } from '@angular/router';
 export class ServiceService {
 
   private url = 'https://cinemaniak-db.herokuapp.com';
-  private urlPriceList = 'https://cinemaniak-db.herokuapp.com/price';
   currentDay;
 
   constructor(private http: HttpClient) { }

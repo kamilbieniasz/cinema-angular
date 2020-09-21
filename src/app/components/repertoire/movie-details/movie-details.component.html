@@ -12,7 +12,7 @@
     </span><br>
     <label for="hours" *ngIf="movie" class="order"><strong>Zamów Bilet!</strong></label>
       <span id="hours" class="hours" >
-        <ul *ngFor="let hour of hours.hours">
+        <ul *ngFor="let hour of hoursForCurrentDay">
           <li [routerLink]="['/orders']" (click)="sendData(hour)">{{hour.hour}}</li>
         </ul>
       </span>

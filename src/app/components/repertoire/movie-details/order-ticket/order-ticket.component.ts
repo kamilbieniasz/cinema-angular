@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
+import { Price } from 'src/app/interface/priceListInterface';
 
 
 @Component({
@@ -29,6 +30,8 @@ export class OrderTicketComponent implements OnInit {
   private selectedPlaces: Array<Place> = [];
   private MovieID: number;
   private dateCurrentMovie: Date[];
+  private normalTicketPrice;
+  private price;
 
 
   constructor(private movieDetailsService: MovieDetailsService, private service: ServiceService, private router: Router) { }
@@ -62,6 +65,11 @@ export class OrderTicketComponent implements OnInit {
         clearInterval(interval);
       }
     }, 1000);
+
+    this.service.getPriceList().subscribe(data =>{
+      console.log(data);
+      this.normalTicketPrice = data.normalTicket;
+    });
     // this.time = this.movieDetailsService.time;
     // this.hours = this.movieDetailsService.hours;
     // console.log("time" + this.time);
@@ -72,13 +80,14 @@ export class OrderTicketComponent implements OnInit {
     this.itemNumber = item;
     console.log(this.places[item]);
     if(this.places[item].free){
-      this.selectedPlaces.push(this.places[item]);
+        this.selectedPlaces.push(this.places[item]);
     }else{
       const index = this.selectedPlaces.indexOf(this.places[item]);
       this.selectedPlaces.splice(index, 1);
     }
     this.places[item].free = !this.places[item].free;
     console.log(this.selectedPlaces);
+    this.priceCalculation();
   }
 
   temp(): void{
@@ -126,6 +135,11 @@ export class OrderTicketComponent implements OnInit {
     this.service.patchMovie(movie).subscribe();
     this.router.navigateByUrl('/best');
     //console.log(temp2);
+  }
+
+  priceCalculation(): void{
+
+    this.price = this.normalTicketPrice * this.selectedPlaces.length;
   }
 
 

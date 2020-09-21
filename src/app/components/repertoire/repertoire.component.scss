@@ -75,7 +75,13 @@
     transform:translateY(20px); 
     transition: transform .3s ease-in-out;
 }
-@media screen and(max-width:870px){
+
+@media screen and (max-width:1030px){
+    .filmContainer{
+        min-height: 80vh;
+    }
+}
+@media screen and (max-width:870px){
     .date{
         .menuForDesktop{
             display:none
