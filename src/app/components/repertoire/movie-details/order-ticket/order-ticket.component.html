@@ -26,7 +26,7 @@
         <p>Data: {{currentDay | date:"dd.MM.yyyy"}},</p>
         <p>Godzina: {{selectedTime}},</p>
         <span class="placesContainer"><p *ngIf="selectedPlaces.length>0">Miejsca:</p>
-            <span><p *ngFor="let selectedPlace of selectedPlaces" class="selectedPlace"> {{selectedPlace.number}}, </p></span></span>
+        <p *ngFor="let selectedPlace of selectedPlaces" class="selectedPlace"> {{selectedPlace.number}}, </p></span>
         <p *ngIf="selectedPlaces.length>0">Cena: {{price}} zł</p>
         <button class="orderBtn" (click)="patchItem()" *ngIf="selectedPlaces.length>0">Zatwierdź zamówienie</button>
     </div>

@@ -46,22 +46,28 @@ main {
 
       img {
         width: 350px;
-        height: 500px;
+        height: auto;
         cursor: pointer;
       }
     }
   }
 }
-@media screen and (max-width:1368px) and (min-width: 1001px){
-  main{
-    .sliderContainer{
-      height:80vh;
-    }
-  }
-}
-@media screen and (max-width: 1000px) and (min-width:351px) {
+@media screen and (max-width:1366px) and (min-width:1001px) {
   header{
     padding-top:40px;
+    text-align: center;
+  }
+  main{
+    height:100vh;
+  }
+  .sliderContainer{
+    width:auto;
+    height:auto;
+  }
+}
+@media screen and (max-width: 1000px) and (min-width:421px) {
+  header{
+    padding-top: 40px;
     text-align: center;
   }
   main {
@@ -69,14 +75,8 @@ main {
     flex-direction: column;
 
     .sliderContainer {
-      margin: 50px;
-      width: 75vw;
-      max-width: 420px;
-      min-height: 500px;
-      height: 60vh;
-      display:flex;
-      justify-content: center;
-      align-items: center;
+      margin:50px 0;
+      max-width: 400px;
       box-shadow: none;
       ngb-carousel {
         max-width: 65vw;
@@ -93,6 +93,21 @@ main {
     }
   }
 }
+@media screen and (max-width:420px) and (min-width:350px) {
+  header{
+    padding-top:40px;
+    text-align: center;
+  }
+  main{
+    height: auto;
+    flex-direction: column;
+    .sliderContainer{
+      margin:50px 0;
+      width:350px;
+      box-shadow: none;
+    }
+  }
+}
 @media screen and (max-width: 350px){
   header{
     padding-top:40px;
@@ -103,20 +118,15 @@ main {
     flex-direction: column;
 
     .sliderContainer {
-      margin: 50px;
-      width: 80vw;
-      max-width: 430px;
-      height: 420px;
-      display:flex;
-      align-items: center;
+      width:320px;
+      margin: 50px 0;
       box-shadow: none;
-      ngb-carousel {
-        max-width: 70vw;
-        img {
-          max-width: 100%;
-          height:auto;
-          border-radius:30px;
-          margin-top:10px;
+      padding: 40px 0;
+      box-shadow: none;
+      ngb-carousel{
+        width:320px;
+        img{
+          width:320px;
         }
       }
     }
