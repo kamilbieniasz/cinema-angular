@@ -180,6 +180,9 @@
     .hamburgerBtn{
         display:flex;
         position: fixed;
+        .hamburgerBarContainer{
+            width:30px;
+        }
     }
 
 }

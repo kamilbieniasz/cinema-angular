@@ -52,7 +52,7 @@ main {
     }
   }
 }
-@media screen and (max-width:1366px) and (min-width:1001px) {
+@media screen and (max-width:1500px) and (min-width:1001px) {
   header{
     padding-top:40px;
     text-align: center;
@@ -97,6 +97,9 @@ main {
   header{
     padding-top:40px;
     text-align: center;
+    h1{
+    font-size:35px;
+    }
   }
   main{
     height: auto;
