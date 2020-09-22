@@ -19,6 +19,8 @@ export class MovieDetailsComponent implements OnInit {
   hoursForCurrentDay = [];
   currentDay;
   selectedHour;
+  private id;
+  errorMessage:string;
 
   constructor(
     private movieDetailsService: MovieDetailsService,
@@ -33,10 +35,10 @@ export class MovieDetailsComponent implements OnInit {
     // this.hours.hours.forEach( (hour) => {
     //   console.log(hour.hour);
     // });
-    const id = this.route.snapshot.paramMap.get('id');
-    localStorage.setItem('currentMovieId', id);
-    this.movie = this.service.getMovieById(id);
-    this.movie.subscribe((data) => console.log(data.date[0].hours[0].hour));
+    this.id = this.route.snapshot.paramMap.get('id');
+    localStorage.setItem('currentMovieId', this.id);
+    this.movie = this.service.getMovieById(this.id);
+    this.service.getMovieById(this.id).subscribe({error: (err: string) => (this.errorMessage = err)});
     await this.selectedDay();
     console.log(this.hours);
     this.hoursValidation();

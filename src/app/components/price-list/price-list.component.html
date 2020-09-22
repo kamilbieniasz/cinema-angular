@@ -1,4 +1,5 @@
 <main>
+    <p *ngIf="errorMessage">{{errorMessage}}</p>
     <div class="price-list" *ngFor="let price of priceList; ">
         <span class="title">Ceny biletów:</span>
         <span>Bilet normalny: {{price.normalTicket}}zł</span><br><hr>

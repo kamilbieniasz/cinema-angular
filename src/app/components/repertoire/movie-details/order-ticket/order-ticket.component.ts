@@ -32,6 +32,7 @@ export class OrderTicketComponent implements OnInit {
   private dateCurrentMovie: Date[];
   private normalTicketPrice;
   private price;
+  private errorMessage;
 
 
   constructor(private movieDetailsService: MovieDetailsService, private service: ServiceService, private router: Router) { }
@@ -50,7 +51,9 @@ export class OrderTicketComponent implements OnInit {
       this.takenPlaces2 = movie.date[this.dateIndex].hours[this.timeIndex].places;
       this.MovieID = movie.id;
       this.dateCurrentMovie = movie.date;
-    });
+    },
+    (err: string) => (this.errorMessage = err)
+    );
     this.places.forEach(date=>{
       if(date.free === false){
         this.takenPlaces.push(date);
@@ -132,7 +135,9 @@ export class OrderTicketComponent implements OnInit {
       date: this.dateCurrentMovie
     }
     //console.log(temp);
-    this.service.patchMovie(movie).subscribe();
+    this.service.patchMovie(movie).subscribe(
+      {error: (err: string) => (this.errorMessage = err)}
+    );
     this.router.navigateByUrl('/best');
     //console.log(temp2);
   }

@@ -16,6 +16,7 @@
 </div>
 <hr/>
 <div class="filmContainer">
+    <p *ngIf="errorMessage">{{errorMessage}}</p>
     <ul *ngFor="let movie of currentMovies">
         <li>
             <span class="movieInfoContainer">

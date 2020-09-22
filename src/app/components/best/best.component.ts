@@ -12,6 +12,7 @@ export class BestComponent implements OnInit {
   movies: Movie[] = [];
   best: Movie[] = [];
   latest: Movie[] = [];
+  errorMessage: string;
 
   // images = [
   //   'https://ftmp.helios.pl/Get/file/mvpstr/4145/1419949354',
@@ -25,7 +26,11 @@ export class BestComponent implements OnInit {
   constructor(private service: ServiceService, private movieDetailsService: MovieDetailsService) { }
 
   async ngOnInit() {
+    try{
     this.movies = await this.service.getMovies();
+    }catch{
+      this.errorMessage = 'Something bad happend :( please try again later.';
+    }
     console.log(this.movies);
     this.sortBestMovies();
     this.sortLatestsMovies();

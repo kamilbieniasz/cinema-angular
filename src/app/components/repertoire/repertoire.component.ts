@@ -18,6 +18,7 @@ export class RepertoireComponent implements OnInit {
   monthName: string[] = ['Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru'];
   selectedItemId = 0;
   currentDay;
+  errorMessage: string;
 
   constructor(private service: ServiceService, private movieDetailsService: MovieDetailsService) {}
 
@@ -28,7 +29,11 @@ export class RepertoireComponent implements OnInit {
     // this.service.getJson().then((result)=> {
     //   this.movies = result.films;
     // });
+    try{
     this.movies = await this.service.getMovies();
+    }catch(error){
+      this.errorMessage = 'Something bad happend :( please try again later.';
+    }
     this.day();
     //console.log(this.movies);
     this.getDay(this.currentDay);

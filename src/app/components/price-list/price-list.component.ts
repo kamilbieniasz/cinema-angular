@@ -10,13 +10,14 @@ import { Price } from 'src/app/interface/priceListInterface';
 export class PriceListComponent implements OnInit {
 
   priceList: Price[] = [];
+  errorMessage;
 
   constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
-    this.service.getPriceList().subscribe( (data) => {
-      this.priceList.push(data);
-    });
+    this.service.getPriceList().subscribe( 
+      (data) => {this.priceList.push(data);},
+      (err: string) => (this.errorMessage = err));
   }
 
 }
