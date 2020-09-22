@@ -9,7 +9,7 @@
       <ng-container *ngFor="let latest of latest; let i = index">
         <ng-template ngbSlide>
           <div class="picsum-img-wrapper">
-            <img (click)="sendMovie(latest)" [routerLink]="['/movies', latest.id]" [src]="imagesLatest[i]" alt="Random first slide" />
+            <img tabindex="6" (click)="sendMovie(latest)" [routerLink]="['/movies', latest.id]" [src]="imagesLatest[i]" alt="Random first slide" />
           </div>
         </ng-template>
       </ng-container>
@@ -22,7 +22,7 @@
       <ng-container *ngFor="let best of best; let i = index">
       <ng-template ngbSlide>
         <div class="picsum-img-wrapper">
-          <img (click)="sendMovie(best)" [routerLink]="['/movies', best.id]" [src]="imagesBest[i]" alt="Random first slide" />
+          <img tab-index="6" (click)="sendMovie(best)" [routerLink]="['/movies', best.id]" [src]="imagesBest[i]" alt="Random first slide" />
         </div>
       </ng-template>
     </ng-container>
