@@ -52,6 +52,20 @@ main {
     }
   }
 }
+::ng-deep .carousel-item {
+  display: block !important;
+  position: absolute;
+  transform: translateX(100%);
+  opacity: 0;
+  transition:all  .8s;
+}
+
+::ng-deep .carousel-item.active {
+  position: relative;
+  transform: translateX(0);
+  opacity: 1;
+  top: 0;
+}
 @media screen and (max-width:1500px) and (min-width:1001px) {
   header{
     padding-top:40px;
@@ -69,6 +83,9 @@ main {
   header{
     padding-top: 40px;
     text-align: center;
+    h1{
+      width:80vw;
+    }
   }
   main {
     height: auto;
@@ -98,7 +115,8 @@ main {
     padding-top:40px;
     text-align: center;
     h1{
-    font-size:35px;
+      width:80vw;
+      font-size:36px;
     }
   }
   main{
@@ -115,6 +133,10 @@ main {
   header{
     padding-top:40px;
     text-align: center;
+    h1{
+      width:80vw;
+      font-size:30px;
+    }
   }
   main{
     height: auto;
@@ -131,6 +153,17 @@ main {
         img{
           width:320px;
         }
+      }
+    }
+  }
+}
+@media screen and (max-height:800px){
+  main{
+    min-height:80vh;
+    .sliderContainer{
+      height:550px;
+      img{
+        height:370px !important;
       }
     }
   }
