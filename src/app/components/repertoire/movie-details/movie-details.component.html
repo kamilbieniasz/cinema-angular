@@ -1,4 +1,12 @@
 <div class="movieDetailsContainer" *ngIf="movie | async as movie">
+  <div class="trailerScreen">
+    <iframe [src]="movie.trailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <button class="closeBtn" (click)="closeTrailer()">
+      <span class="closeBtnStyle">
+
+      </span>
+    </button>
+  </div>
   <img class="movieCover" [src]="movie.cover" [alt]="movie.title" />
   <span class="movieInfo">
     <span class="title">
@@ -10,6 +18,7 @@
       <span *ngIf="movie.cast">Obsada: {{ movie.cast }},<br /></span>
       Premiera: {{ movie.release_date | date: 'dd.MM.yyyy' }}, Czas trwania: {{ movie.duration }}
     </span><br>
+    <button class="trailer" (click)="showTrailer()">Zobacz trailer</button>
     <label for="hours" *ngIf="movie" class="order"><strong>Zamów Bilet!</strong></label>
       <span id="hours" class="hours" >
         <ul *ngFor="let hour of hoursForCurrentDay">

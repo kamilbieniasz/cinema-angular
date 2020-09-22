@@ -85,6 +85,7 @@ export interface Movie {
   direction: string;
   cast: string;
   release_date: Date;
+  trailer: string;
   date: Date[];
   hours: Hour2[];
   cover: string;

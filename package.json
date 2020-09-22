@@ -29,6 +29,7 @@
     "bootstrap": "^4.5.0",
     "ng-media-query": "^1.0.3",
     "rxjs": "~6.5.5",
+    "safe-pipe": "^1.0.3",
     "tslib": "^2.0.1",
     "zone.js": "~0.10.3"
   },

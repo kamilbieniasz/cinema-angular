@@ -93,4 +93,14 @@ export class MovieDetailsComponent implements OnInit {
   sendPlace(): void {
     this.movieDetailsService.place = this.hours.hours;
   }
+
+  showTrailer(): void{
+    const trailer = document.querySelector('app-movie-details>.movieDetailsContainer>.trailerScreen');
+    trailer.classList.toggle('showTrailer');
+  }
+
+  closeTrailer(): void{
+    const trailer = document.querySelector('app-movie-details>.movieDetailsContainer>.trailerScreen');
+    trailer.classList.remove('showTrailer');
+  }
 }
