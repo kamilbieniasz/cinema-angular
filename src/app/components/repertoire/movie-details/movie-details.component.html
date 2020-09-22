@@ -1,9 +1,8 @@
 <div class="movieDetailsContainer" *ngIf="movie | async as movie">
   <div class="trailerScreen">
-    <iframe [src]="movie.trailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe class="movieIframe" [src]="movie.trailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <button class="closeBtn" (click)="closeTrailer()">
       <span class="closeBtnStyle">
-
       </span>
     </button>
   </div>

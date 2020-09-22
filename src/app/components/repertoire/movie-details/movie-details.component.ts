@@ -6,6 +6,7 @@ import { Movie, Date } from '../../../interface/movieInterface';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ThrowStmt } from '@angular/compiler';
+import { NoopAnimationPlayer } from '@angular/animations';
 
 @Component({
   selector: 'app-movie-details',
@@ -101,6 +102,9 @@ export class MovieDetailsComponent implements OnInit {
 
   closeTrailer(): void{
     const trailer = document.querySelector('app-movie-details>.movieDetailsContainer>.trailerScreen');
+    const iframe = document.querySelector('app-movie-details>.movieDetailsContainer>.trailerScreen>iframe');
+    const currentURL = iframe.getAttribute('src');
+    iframe.setAttribute('src', currentURL + '?enablejsapi=1');
     trailer.classList.remove('showTrailer');
   }
 }
