@@ -5,24 +5,22 @@ import { ViewportScroller } from '@angular/common';
 @Component({
   selector: 'app-special-offers',
   templateUrl: './special-offers.component.html',
-  styleUrls: ['./special-offers.component.scss']
+  styleUrls: ['./special-offers.component.scss'],
 })
 export class SpecialOffersComponent implements OnInit {
-
   forSchool = false;
   forCompanies = false;
   cheapWednesdays = false;
   horrorsNight = false;
   classic = false;
 
-  constructor(private viewprotScroller: ViewportScroller) { }
+  constructor(private viewprotScroller: ViewportScroller) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  changeFlagStatus(num: number): void{
+  changeFlagStatus(num: number): void {
     this.clearFlag();
-    switch(num){
+    switch (num) {
       case 0:
         this.forSchool = true;
         break;
@@ -39,11 +37,11 @@ export class SpecialOffersComponent implements OnInit {
         this.classic = true;
         break;
       default:
-        console.log("incorrect value");
+        console.log('incorrect value');
         break;
     }
   }
-  clearFlag(): void{
+  clearFlag(): void {
     this.forSchool = false;
     this.forCompanies = false;
     this.cheapWednesdays = false;
@@ -51,20 +49,18 @@ export class SpecialOffersComponent implements OnInit {
     this.classic = false;
   }
 
-  scorllToElement(elementId: string): void{
+  scorllToElement(elementId: string): void {
     this.viewprotScroller.scrollToAnchor(elementId);
   }
 
-  changeNavBar(): void{
+  changeNavBar(): void {
     const navbar = document.querySelector('main > .navbar');
-    if(scrollY > 117){
+    if (scrollY > 117) {
       navbar.classList.remove('normalNavBar');
       navbar.classList.add('navbarOnScroll');
-    }
-    else if(scrollY <117){
-      navbar.classList.remove('navbarOnScroll')
+    } else if (scrollY < 117) {
+      navbar.classList.remove('navbarOnScroll');
       navbar.classList.add('normalNavBar');
     }
   }
 }
-

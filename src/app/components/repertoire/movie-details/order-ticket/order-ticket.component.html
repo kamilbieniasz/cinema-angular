@@ -9,6 +9,7 @@
         <span class="screenContainer">
             <span class="screen"></span>
         </span>
+        <p *ngIf="errorMessage">{{errorMessage}}</p>
         <ul>
             <li *ngFor="let place of places; let i=index;"
                 class="place" 

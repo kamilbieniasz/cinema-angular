@@ -7,9 +7,7 @@ import { hasClassName } from '@ng-bootstrap/ng-bootstrap/util/util';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'cinemaV2';
-  private navbar = document.querySelector('.navbar');
-  private hamburgerBtn = document.querySelector('.hamburgerBtn');
+  title = 'cinemaniak';
 
   hideAndShowMenu(): void{
     const navbar = document.querySelector('.navbar');

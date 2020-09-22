@@ -5,19 +5,20 @@ import { Price } from 'src/app/interface/priceListInterface';
 @Component({
   selector: 'app-price-list',
   templateUrl: './price-list.component.html',
-  styleUrls: ['./price-list.component.scss']
+  styleUrls: ['./price-list.component.scss'],
 })
 export class PriceListComponent implements OnInit {
-
   priceList: Price[] = [];
-  errorMessage;
+  errorMessage: string;
 
-  constructor(private service: ServiceService) { }
+  constructor(private service: ServiceService) {}
 
   ngOnInit(): void {
-    this.service.getPriceList().subscribe( 
-      (data) => {this.priceList.push(data);},
-      (err: string) => (this.errorMessage = err));
+    this.service.getPriceList().subscribe(
+      (data) => {
+        this.priceList.push(data);
+      },
+      (err: string) => (this.errorMessage = err)
+    );
   }
-
 }
