@@ -1,7 +1,8 @@
-
+@import '../../../../assets/scss/colors';
 
 footer{
-    position:absolute;
-    bottom:0;
-    background: linear-gradient(to right, #102C46, #175185 , #102C46);
+    background: $gradient-blue;
+    color:white;
+    text-align:center;
+    padding:10px 0;
 }
