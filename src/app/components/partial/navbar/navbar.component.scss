@@ -1,0 +1,133 @@
+.hamburgerBtn {
+  padding: 10px 5px 0 5px;
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  z-index: 100;
+  display: none;
+  outline: none;
+
+  .hamburgerBarContainer {
+    width: 35px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+
+    @mixin hamburgerBarStyle {
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(to right, #102C46, #175185, #102C46);
+      position: absolute;
+      z-index: 0;
+    }
+
+    .hamburgerBar {
+      @include hamburgerBarStyle;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &:before,
+      &:after {
+        @include hamburgerBarStyle;
+        content: '';
+        left: 0;
+        transition: transform .2s ease-in-out
+      }
+
+      &:before {
+        top: -10px;
+      }
+
+      &:after {
+        top: 10px;
+      }
+    }
+  }
+}
+
+.navbar {
+    height:80px;
+  background: linear-gradient(to right, #102C46, #175185, #102C46);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .1s ease-in-out;
+  z-index: 10;
+
+  ul {
+      height:100%;
+      margin:0;
+    display: flex;
+    align-items: center;
+
+    li {
+      cursor: pointer;
+      list-style-type: none;
+      color: white;
+      font-size: 30px;
+      transition: transform .15s;
+      padding:0 20px;
+
+      &:first-child{
+          padding-left:0;
+      }
+      &:last-child{
+          padding-right: 0;
+      }
+
+      &:hover{
+        transform: scale(1.2);
+        transition: transform .15s;
+      }
+
+      &:active{
+        outline: none;
+      }
+    }
+
+    .logo {
+      width: 120px;
+      height: 60px;
+      // border: 3px solid white;
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+
+      &>span {
+        font-size: 26px;
+        color: white;
+        user-select: none;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 150%;
+        height: 100%;
+        opacity: .2;
+        transform: rotate(45deg);
+        transition: all ease 1s;
+        background-color: #fff;
+      }
+
+      &:hover:before {
+        left: 100%;
+      }
+    }
+
+    .verticalLine {
+      width: 0px;
+      height: 80px;
+      float: left;
+      border: 1px inset;
+    }
+
+  }
+}

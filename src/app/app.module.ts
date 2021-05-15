@@ -13,7 +13,7 @@ import { BestComponent } from './components/best/best.component';
 import { MovieDetailsComponent } from './components/repertoire/movie-details/movie-details.component';
 import { OrderTicketComponent } from './components/repertoire/movie-details/order-ticket/order-ticket.component';
 import { ContactComponent } from './components/contact/contact.component';
-
+import { NavbarComponent } from './components/partial/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { ContactComponent } from './components/contact/contact.component';
     BestComponent,
     MovieDetailsComponent,
     OrderTicketComponent,
-    ContactComponent
+    ContactComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

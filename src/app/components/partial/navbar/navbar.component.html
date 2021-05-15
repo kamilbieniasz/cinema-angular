@@ -1,0 +1,14 @@
+<button class="hamburgerBtn" (click)="hideAndShowMenu()">
+  <span class="hamburgerBarContainer">
+    <span class="hamburgerBar"></span>
+  </span>
+</button>
+<nav class="navbar">
+  <ul>
+    <li tabindex="1" [routerLink]="['/best']" routerLinkActive="router-link-active" (click)="hideMenu()">CineManiak</li>
+    <li tabindex="2" [routerLink]="['/repertoire']" routerLinkActive="router-link-active" (click)="hideMenu()">Repertuar</li>
+    <li tabindex="3" [routerLink]="['/price-list']" routerLinkActive="router-link-active" (click)="hideMenu()">Cennik</li>
+    <li tabindex="4" [routerLink]="['/special-offers']" routerLinkActive="router-link-active" (click)="hideMenu()">Oferty specjalne</li>
+    <li tabindex="5" [routerLink]="['/contact']" routerLinkActive="router-link-active" (click)="hideMenu()">O nas</li>
+  </ul>
+</nav>
