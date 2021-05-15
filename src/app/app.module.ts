@@ -14,6 +14,7 @@ import { MovieDetailsComponent } from './components/repertoire/movie-details/mov
 import { OrderTicketComponent } from './components/repertoire/movie-details/order-ticket/order-ticket.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { NavbarComponent } from './components/partial/navbar/navbar.component';
+import { FooterComponent } from './components/partial/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NavbarComponent } from './components/partial/navbar/navbar.component';
     OrderTicketComponent,
     ContactComponent,
     NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

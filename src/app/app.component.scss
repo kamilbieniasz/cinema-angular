@@ -3,15 +3,16 @@ main{
     height:100vh;
     display:flex;
     flex-direction: column;
-}
-.footerWrapper{
-    width:100%;
-    background: linear-gradient(to right, #102C46, #175185 , #102C46);
-    color:white;
-    justify-self: flex-end;
-    align-self: flex-end;
+    position:relative;
+
+    .footerWrapper{
+        width:100%;
+        position:absolute;
+        bottom:0;
+    }
 }
 
+///////////////////////////
 .showMenu{
     transform: translateX(100vw);
     transition: .1s ease-in-out;
