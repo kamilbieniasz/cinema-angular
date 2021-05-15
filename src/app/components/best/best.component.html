@@ -1,33 +1,35 @@
-<main>
+<div class="bestMovieWrapper">
   <header>
     <h1>Polecane przez nas filmy</h1>
     <p *ngIf="errorMessage">{{errorMessage}}</p>
   </header>
-  <div class="sliderContainer">
-    <span class="type">Najnowsze</span>
-    <ngb-carousel *ngIf="imagesLatest">
-      <ng-container *ngFor="let latest of latest; let i = index">
-        <ng-template ngbSlide>
-          <div class="picsum-img-wrapper">
-            <img tabindex="6" (click)="sendMovie(latest)" [routerLink]="['/movies', latest.id]" [src]="imagesLatest[i]"
-              alt="Random first slide" />
-          </div>
-        </ng-template>
-      </ng-container>
-    </ngb-carousel>
-  </div>
+  <div class="slidersContainer">
+    <div class="slider">
+      <h2 class="type">Najnowsze</h2>
+      <ngb-carousel *ngIf="imagesLatest">
+        <ng-container *ngFor="let latest of latest; let i = index">
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img tabindex="6" (click)="sendMovie(latest)" [routerLink]="['/movies', latest.id]"
+                [src]="imagesLatest[i]" alt="Random first slide" />
+            </div>
+          </ng-template>
+        </ng-container>
+      </ngb-carousel>
+    </div>
 
-  <div class="sliderContainer">
-    <span class="type">Najlepsze</span>
-    <ngb-carousel *ngIf="imagesBest">
-      <ng-container *ngFor="let best of best; let i = index">
-        <ng-template ngbSlide>
-          <div class="picsum-img-wrapper">
-            <img tab-index="6" (click)="sendMovie(best)" [routerLink]="['/movies', best.id]" [src]="imagesBest[i]"
-              alt="Random first slide" />
-          </div>
-        </ng-template>
-      </ng-container>
-    </ngb-carousel>
+    <div class="slider">
+      <h2 class="type">Najlepsze</h2>
+      <ngb-carousel *ngIf="imagesBest">
+        <ng-container *ngFor="let best of best; let i = index">
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img tab-index="6" (click)="sendMovie(best)" [routerLink]="['/movies', best.id]" [src]="imagesBest[i]"
+                alt="Random first slide" />
+            </div>
+          </ng-template>
+        </ng-container>
+      </ngb-carousel>
+    </div>
   </div>
-</main>
+</div>

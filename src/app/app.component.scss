@@ -1,13 +1,15 @@
-.footer{
+main{
     width:100vw;
-    height:5vh;
-    min-height:40px;
-    flex-shrink: 0;
-    background: linear-gradient(to right, #102C46, #175185 , #102C46);
+    height:100vh;
     display:flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+}
+.footerWrapper{
+    width:100%;
+    background: linear-gradient(to right, #102C46, #175185 , #102C46);
     color:white;
+    justify-self: flex-end;
+    align-self: flex-end;
 }
 
 .showMenu{
