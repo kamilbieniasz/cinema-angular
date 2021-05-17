@@ -24,11 +24,6 @@
           flex-direction: column;
       }
 
-
-    &>* {
-      padding: 20px;
-    }
-
     &>.address {
       grid-area: address;
     }
