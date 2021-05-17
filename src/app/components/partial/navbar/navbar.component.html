@@ -1,9 +1,9 @@
-<button class="hamburgerBtn" (click)="hideAndShowMenu()">
+<button #hamburgerBtn class="hamburgerBtn" (click)="hideAndShowMenu()">
   <span class="hamburgerBarContainer">
     <span class="hamburgerBar"></span>
   </span>
 </button>
-<nav class="navbar">
+<nav #navbar class="navbar">
   <ul>
     <li tabindex="1" [routerLink]="['/best']" routerLinkActive="router-link-active" (click)="hideMenu()">CineManiak</li>
     <li tabindex="2" [routerLink]="['/repertoire']" routerLinkActive="router-link-active" (click)="hideMenu()">Repertuar</li>
