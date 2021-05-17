@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-repertoire',
   templateUrl: './repertoire.component.html',
   styleUrls: ['./repertoire.component.scss'],
+  host: {
+    class: 'contentWrapper'
+  },
 })
 export class RepertoireComponent implements OnInit {
   dayNumber: number;
@@ -13,35 +16,31 @@ export class RepertoireComponent implements OnInit {
   currentMovies: Movie[] = [];
   date: Date[] = [];
   dayName: string[] = ['Nd', 'Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So'];
-  monthName: string[] = [
-    'Sty',
-    'Lut',
-    'Mar',
-    'Kwi',
-    'Maj',
-    'Cze',
-    'Lip',
-    'Sie',
-    'Wrz',
-    'Paź',
-    'Lis',
-    'Gru',
-  ];
+  monthName: string[] = ['Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru'];
   selectedItemId = 0;
   currentDay;
   errorMessage: string;
 
+  isLoading = true;
+
   constructor(
     private service: ServiceService
-  ) {}
+  ) { }
 
-  async ngOnInit(): Promise<void> {
-    this.service.getMovies().subscribe( (response) => {
+  ngOnInit(): void {
+    this.service.getMovies().subscribe((response) => {
       this.movies = response;
+      this.isLoading = false;
+
+      this.day();
+      // this.getDay(this.currentDay);
+      this.sortMovieForList();
     });
-    this.day();
-    this.getDay(this.currentDay);
-    this.sortMovieForList();
+  }
+
+  // === handle current selected date ===
+  selectedItem(index): void {
+    this.selectedItemId = index;
   }
 
   day(): void {
@@ -52,21 +51,15 @@ export class RepertoireComponent implements OnInit {
     }
   }
 
-  selectedItem(index): void {
-    this.selectedItemId = index;
-  }
-
-  getDay(day): void {
-    this.currentDay = day;
-  }
+  // getDay(day): void {
+  //   this.currentDay = day;
+  // }
 
   sortMovieForList(): void {
     this.currentMovies = [];
     this.movies.forEach((movie) => {
       movie.date.forEach((date) => {
-        if (
-          date.day === this.date[this.selectedItemId].getDay()
-        ) {
+        if ( date.day === this.date[this.selectedItemId].getDay() ) {
           this.currentMovies.push(movie);
         } else {
           return false;
@@ -74,14 +67,14 @@ export class RepertoireComponent implements OnInit {
       });
     });
 
-    this.changeCurrentDay(this.selectedItemId);
+    this.changeSelectedDay(this.selectedItemId);
   }
 
   sortMovieForSelect({ value }): void {
     const tab = value.split(',');
     const id = tab[0];
-    const date = new Date(Date.parse(tab[1]));
-    this.getDay(date.getDay());
+    // const date = new Date(Date.parse(tab[1]));
+    // this.getDay(date.getDay());
     this.currentMovies = [];
     this.movies.forEach((movie) => {
       if (
@@ -93,10 +86,10 @@ export class RepertoireComponent implements OnInit {
         return false;
       }
     });
-    this.changeCurrentDay(id);
+    this.changeSelectedDay(id);
   }
 
-  changeCurrentDay(index): void {
+  changeSelectedDay(index): void {
     this.service.currentDay = this.date[index];
     localStorage.setItem('currentDay', this.date[index].toString());
   }

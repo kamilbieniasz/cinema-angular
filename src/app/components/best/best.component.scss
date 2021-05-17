@@ -63,8 +63,7 @@
       }
     }
   }
-  ::ng-deep
-  .mat-progress-spinner{
+  ::ng-deep .mat-progress-spinner{
     circle{
       stroke: $light-blue;
     }
