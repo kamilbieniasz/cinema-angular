@@ -1,9 +1,9 @@
-<div class="bestMovieWrapper">
+<section class="bestMovieWrapper">
   <header>
     <h1>Polecane przez nas filmy</h1>
     <p *ngIf="errorMessage">{{errorMessage}}</p>
   </header>
-  <div class="slidersContainer">
+  <div class="slidersContainer" *ngIf="!isLoading">
     <div class="slider">
       <h2 class="type">Najnowsze</h2>
       <ngb-carousel *ngIf="imagesLatest">
@@ -32,4 +32,5 @@
       </ngb-carousel>
     </div>
   </div>
-</div>
+  <mat-progress-spinner *ngIf="isLoading" mode="indeterminate"> </mat-progress-spinner>
+</section>

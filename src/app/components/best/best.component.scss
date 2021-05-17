@@ -1,31 +1,37 @@
 @import '../../../assets/scss/colors';
 
-div.bestMovieWrapper {
-  height: 100%;
+.bestMovieWrapper {
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  header {
+  &>header {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin:20px 0;
   }
 
-  .slidersContainer {
+  &>.slidersContainer {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
 
-    .slider {
+    @media screen and (max-width:768px) {
+      flex-direction: column;
+      width: auto;
+    }
+
+    &>.slider {
       background-color: $dark-blue;
       border-radius: 15px;
 
-      .type {
-        padding: 30px;
+      &>.type {
+        padding: 20px;
         animation: scaleSpan 0.7s infinite alternate;
-        color:white;
+        color: white;
         text-align: center;
 
         @keyframes scaleSpan {
@@ -39,16 +45,28 @@ div.bestMovieWrapper {
         }
       }
 
-      ngb-carousel {
-        width: 350px;
-        height: 500px;
+      &>ngb-carousel {
+        padding: 20px 50px 50px 50px;
 
-        img {
-          width: 350px;
-          height: auto;
-          cursor: pointer;
+        .picsum-img-wrapper {
+          &>img {
+            width: 300px;
+            height: auto;
+            cursor: pointer;
+
+            @media screen and (max-width: 768px) {
+              width: auto;
+              height: 200px;
+            }
+          }
         }
       }
+    }
+  }
+  ::ng-deep
+  .mat-progress-spinner{
+    circle{
+      stroke: $light-blue;
     }
   }
 }
@@ -66,126 +84,4 @@ div.bestMovieWrapper {
   transform: translateX(0);
   opacity: 1;
   top: 0;
-}
-
-@media screen and (max-width:1500px) and (min-width:1001px) {
-  header {
-    padding-top: 40px;
-    text-align: center;
-  }
-
-  main {
-    height: 100vh;
-  }
-
-  .sliderContainer {
-    width: auto;
-    height: auto;
-  }
-}
-
-@media screen and (max-width: 1000px) and (min-width:421px) {
-  header {
-    padding-top: 40px;
-    text-align: center;
-
-    h1 {
-      width: 80vw;
-    }
-  }
-
-  main {
-    height: auto;
-    flex-direction: column;
-
-    .sliderContainer {
-      margin: 50px 0;
-      max-width: 400px;
-      box-shadow: none;
-
-      ngb-carousel {
-        max-width: 65vw;
-        display: flex;
-        align-items: center;
-        margin-top: 30px;
-
-        img {
-          max-width: 100%;
-          height: auto;
-          border-radius: 30px;
-          margin-top: 10px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width:420px) and (min-width:350px) {
-  header {
-    padding-top: 40px;
-    text-align: center;
-
-    h1 {
-      width: 80vw;
-      font-size: 36px;
-    }
-  }
-
-  main {
-    height: auto;
-    flex-direction: column;
-
-    .sliderContainer {
-      margin: 50px 0;
-      width: 350px;
-      box-shadow: none;
-    }
-  }
-}
-
-@media screen and (max-width: 350px) {
-  header {
-    padding-top: 40px;
-    text-align: center;
-
-    h1 {
-      width: 80vw;
-      font-size: 30px;
-    }
-  }
-
-  main {
-    height: auto;
-    flex-direction: column;
-
-    .sliderContainer {
-      width: 320px;
-      margin: 50px 0;
-      box-shadow: none;
-      padding: 40px 0;
-      box-shadow: none;
-
-      ngb-carousel {
-        width: 320px;
-
-        img {
-          width: 320px;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-height:800px) {
-  main {
-    min-height: 80vh;
-
-    .sliderContainer {
-      height: 550px;
-
-      img {
-        height: 370px !important;
-      }
-    }
-  }
 }

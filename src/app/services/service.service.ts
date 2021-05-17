@@ -15,8 +15,8 @@ export class ServiceService {
 
   constructor(private http: HttpClient) {}
 
-  async getMovies(): Promise<Movie[]> {
-    const response = await this.http.get<any>(this.url + '/movies').toPromise();
+  getMovies(): Observable<Movie[]> {
+    const response = this.http.get<Movie[]>(this.url + '/movies');
     return response;
   }
 

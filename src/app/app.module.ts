@@ -4,6 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { SafePipeModule } from 'safe-pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { RepertoireComponent } from './components/repertoire/repertoire.component';
@@ -34,7 +36,9 @@ import { FooterComponent } from './components/partial/footer/footer.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    SafePipeModule
+    SafePipeModule,
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

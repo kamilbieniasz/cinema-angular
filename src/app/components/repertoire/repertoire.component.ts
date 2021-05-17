@@ -36,11 +36,9 @@ export class RepertoireComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
-    try {
-      this.movies = await this.service.getMovies();
-    } catch (error) {
-      this.errorMessage = 'Something bad happend :( please try again later.';
-    }
+    this.service.getMovies().subscribe( (response) => {
+      this.movies = response;
+    });
     this.day();
     this.getDay(this.currentDay);
     this.sortMovieForList();
