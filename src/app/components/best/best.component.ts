@@ -1,9 +1,12 @@
 import { ServiceService } from './../../services/service.service';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/interface/movieInterface';
 
 @Component({
   selector: 'app-best',
+  host: {
+    class: 'contentWrapper'
+  },
   templateUrl: './best.component.html',
   styleUrls: ['./best.component.scss'],
 })
@@ -15,20 +18,26 @@ export class BestComponent implements OnInit {
   imagesBest = [];
   imagesLatest = [];
 
+  isLoading = true;
+
   constructor(
-    private service: ServiceService
+    private service: ServiceService,
+    private cdref: ChangeDetectorRef
   ) {}
 
   async ngOnInit(): Promise<void> {
-    try {
-      this.movies = await this.service.getMovies();
-    } catch {
-      this.errorMessage = 'Something bad happend :( please try again later.';
-    }
-    this.sortBestMovies();
-    this.sortLatestsMovies();
-    this.addBestImages();
-    this.addLatestImages();
+      this.service.getMovies().subscribe( (response) => {
+        this.movies = response;
+        console.log(response);
+        this.isLoading = false;
+        this.sortBestMovies();
+        this.sortLatestsMovies();
+        this.addBestImages();
+        this.addLatestImages();
+      })
+
+   
+   
   }
 
   sortBestMovies(): void {
