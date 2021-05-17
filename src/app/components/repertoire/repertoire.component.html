@@ -1,32 +1,37 @@
-<div class="date">
-    <ul class="menuForDesktop" *ngFor="let date of date; let i = index">
-        <li (click)="selectedItem(i)" (click)="getDay(date.getDay())" (click)="sortMovieForList()" [ngClass]="{active: selectedItemId == i}">
-            {{date.getDate()}}<br>
-            {{dayName[date.getDay()]}}<br>
-            {{monthName[date.getMonth()]}}
-        </li>
-    </ul>
-    <select class="menuForPhone" (change)="sortMovieForSelect($event.target)">
-        <option *ngFor="let date of date; let i = index" value="{{i}},{{date}}" (click)="selectedItem(i)" (click)="getDay(date.getDay())" [ngClass]="{active: selectedItemId == i}">
-            {{date.getDate()}}<br>
-            {{dayName[date.getDay()]}}<br>
-            {{monthName[date.getMonth()]}}
-        </option>
-    </select>
-</div>
-<hr/>
-<div class="filmContainer">
-    <p *ngIf="errorMessage">{{errorMessage}}</p>
-    <ul *ngFor="let movie of currentMovies">
-        <li>
-            <span class="movieInfoContainer">
-                <img [src]="movie.cover"/>
-                <span class="movieDescription">
-                <p>{{movie.title}}</p>
-                <p>Czas trwania: {{movie.duration}} min.</p>
+<section class="repetitoreWrapper">
+    <div class="date">
+        <ul class="menuForDesktop">
+            <li (click)="selectedItem(i)" *ngFor="let date of date; let i = index" (click)="sortMovieForList()" [ngClass]="{active: selectedItemId == i}">
+                {{date.getDate()}}<br>
+                {{dayName[date.getDay()]}}<br>
+                {{monthName[date.getMonth()]}}
+            </li>
+        </ul>
+        <select class="menuForPhone" (change)="sortMovieForSelect($event.target)">
+            <option *ngFor="let date of date; let i = index" value="{{i}},{{date}}" (click)="selectedItem(i)" (click)="getDay(date.getDay())" [ngClass]="{active: selectedItemId == i}">
+                {{date.getDate()}}<br>
+                {{dayName[date.getDay()]}}<br>
+                {{monthName[date.getMonth()]}}
+            </option>
+        </select>
+    </div>
+    <hr class="line"/>
+    <div class="filmContainer" *ngIf="!isLoading">
+        <p *ngIf="errorMessage">{{errorMessage}}</p>
+        <ul *ngFor="let movie of currentMovies">
+            <li>
+                <span class="movieInfoContainer">
+                    <img [src]="movie.cover"/>
+                    <span class="movieDescription">
+                    <p>{{movie.title}}</p>
+                    <p>Czas trwania: {{movie.duration}} min.</p>
+                    </span>
                 </span>
-            </span>
-            <button [routerLink]="['/movies', movie.id]">Zobacz szczegóły</button>
-        </li>
-    </ul>
-</div>
+                <button [routerLink]="['/movies', movie.id]">Zobacz szczegóły</button>
+            </li>
+        </ul>
+    </div>
+    <div class="loadingContainer">
+        <mat-progress-spinner *ngIf="isLoading" mode="indeterminate"> </mat-progress-spinner>
+    </div>
+</section>
