@@ -1,18 +1,19 @@
-<main>
+<section class="priceWrapper">
     <p *ngIf="errorMessage">{{errorMessage}}</p>
-    <div class="price-list" *ngFor="let price of priceList; ">
-        <span class="title">Ceny biletów:</span>
-        <span>Bilet normalny: {{price.normalTicket}}zł</span><br><hr>
-        <span class="even">Bilet familijny: {{price.familyTicket}}zł</span><br><hr>
-        <span>Bilet ulgowy: {{price.reducedTicket}}zł*</span><br><hr>
-        <span class="even">Bilet w tanią środę: {{price.wednesdayTicket}}zł*</span><br><hr>
-        <span>Bilet na noc horrorów: {{price.horrorsNightTicket}}zł*</span><br><hr>
-        <span class="even">Bilet na filmy z oznaczeniem classic: {{price.classicMovieTicket}}zł*</span>
+    <div class="priceListContainer">
+        <h2 class="title">Ceny biletów:</h2>
+        <ng-container class="ticketContainer" class="ticketContainer" *ngIf="!isLoading">
+            <p *ngFor="let price of priceList">
+                <span class="ticketName">{{price.name}}:</span> 
+                <span class="ticketCost">{{price.price}}zł</span>
+            </p>
+        </ng-container>
+        <mat-progress-spinner *ngIf="isLoading" mode="indeterminate"> </mat-progress-spinner>
     </div>
     <div class="discount">
-        <h5>
+        <h2 class="title">
             Im wcześniej kupisz bilet tym lepiej!
-        </h5>
+        </h2>
         <p class="normalTicket">(Dotyczy tylko biletów normalnych)</p>
         
         <table>
@@ -35,4 +36,4 @@
             <p>*Bilet na filmy z oznaczeniem classic - z szacunku do klasyków wszystkie klasyczne filmy taniej!</p>
         </span>
     </div>
-</main>
+</section>
