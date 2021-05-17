@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'navbar',
@@ -12,17 +12,18 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  @ViewChild('navbar') navbar: ElementRef;
+  @ViewChild('hamburgerBtn') hamburgerBtn: ElementRef;
+
   hideAndShowMenu(): void{
-    const navbar = document.querySelector('.navbar');
-    const hamburgerBtn = document.querySelector('.hamburgerBtn');
-    navbar.classList.toggle('showMenu');
-    hamburgerBtn.classList.toggle('hamburgerBtnActive');
+    this.navbar.nativeElement.classList.toggle('showMenu');
+    this.hamburgerBtn.nativeElement.classList.toggle('hamburgerBtnActive');
   }
 
   hideMenu(): void{
-    const navbar = document.querySelector('.navbar');
-    const hamburgerBtn = document.querySelector('.hamburgerBtn');
-    navbar.classList.remove('showMenu');
-    hamburgerBtn.classList.remove('hamburgerBtnActive');
+    // const navbar = document.querySelector('.navbar');
+    // const hamburgerBtn = document.querySelector('.hamburgerBtn');
+    this.navbar.nativeElement.classList.remove('showMenu');
+    this.hamburgerBtn.nativeElement.classList.remove('hamburgerBtnActive');
   }
 }
