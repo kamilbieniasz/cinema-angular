@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SafePipeModule } from 'safe-pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { RepertoireComponent } from './components/repertoire/repertoire.component';
@@ -17,6 +18,11 @@ import { OrderTicketComponent } from './components/repertoire/movie-details/orde
 import { ContactComponent } from './components/contact/contact.component';
 import { NavbarComponent } from './components/partial/navbar/navbar.component';
 import { FooterComponent } from './components/partial/footer/footer.component';
+import { ForSchoolComponent } from './components/special-offers/for-school/for-school.component';
+import { ForCompanyComponent } from './components/special-offers/for-company/for-company.component';
+import { CheapWednesdayComponent } from './components/special-offers/cheap-wednesday/cheap-wednesday.component';
+import { HorrorNightComponent } from './components/special-offers/horror-night/horror-night.component';
+import { ClassicMovieComponent } from './components/special-offers/classic-movie/classic-movie.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +36,11 @@ import { FooterComponent } from './components/partial/footer/footer.component';
     ContactComponent,
     NavbarComponent,
     FooterComponent,
+    ForSchoolComponent,
+    ForCompanyComponent,
+    CheapWednesdayComponent,
+    HorrorNightComponent,
+    ClassicMovieComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +49,8 @@ import { FooterComponent } from './components/partial/footer/footer.component';
     HttpClientModule,
     SafePipeModule,
     BrowserAnimationsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
