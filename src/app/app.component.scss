@@ -2,7 +2,6 @@ main{
     height: 100vh;
     display:flex;
     flex-direction: column;
-    overflow-x: hidden;
 
     ::ng-deep .contentWrapper{
         height:100%;
@@ -20,6 +19,7 @@ main{
         width:100%;
         display:inline-block;
         justify-self: flex-end;
+        z-index:11;
     }
 }
 

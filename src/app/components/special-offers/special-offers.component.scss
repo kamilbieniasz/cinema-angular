@@ -1,125 +1,37 @@
+@import '../../../assets/scss/colors';
+@import '../../../assets/scss/fonts';
+
 main{
-    min-height: 85vh;
-    .navbar{
-        width:100vw;
+    // overflow-y: auto;
+    
+    &>.navbar{
+        background: rgba($light-blue, 0.3);
+        height:100%;
         display:flex;
+        flex-direction: column;
         justify-content: center;
-        display:flex;
         list-style-type: none;
-        position:sticky;
-        top:0px;
-        li{
-            margin:30px;
-            width:200px;
-            height:30px;
-            font-size:20px;
-            cursor: pointer;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            border-radius:10px;
+        position:fixed;
+        left:0px;
+        &>li{
+            margin: 20px 40px;
             transition: transform .15s ease-in-out;
-        }
-        li:hover{
-            transform: scale(1.2);
-            transition: transform .15s ease-in-out;
-        }
-    }  
-    @keyframes transitionIn {
-        from{
-            opacity: 0;
-        }
-        to{
-            opacity:1;
-        }
-        
-    }
-    .Container{
-        animation: transitionIn .8s;
-        padding-left:100px;
-        min-height:60vh;
-        .title{
-            display:flex;
-            justify-content: center;
-        }
-        p{
-            margin-top:100px;
-            width:40vw;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .text{
-            ul{
-                padding-left:40px;
+            
+            &>a{
+                color: $color-white;
+                font-size:$medium-font;
+                text-shadow: 6px 6px 6px black;
+            }
+            
+            &:hover{
+                transform: scale(1.2);
+                transition: transform .15s ease-in-out;
             }
         }
     }
-    .forCompany, .cheapWednesday, .horrorsNight, .classicMovies{
-        animation: transitionIn .8s;
-        margin-top:200px;
-        height:80vh;
-        .title{
-            margin-bottom:100px;
-        }
-        .info{
-            .text{
-                p{
-                    margin-top:0px;
-                }
-            }
-        }
-    }
-}
-.navbarOnScroll{
-    background: linear-gradient(to right, #102C46, #175185 , #102C46);
-    color: white;
-    transition: .2s ease-in-out;
-}
-.normalNavBar{
-    background-color: transparent;
-    color:black;
-    transition: .2s ease-in-out;
-}
-@media screen and(max-width:1332px) and (min-width:883px) {
-    main{
-        .navbar{
-            li{
-                width:150px;
-                margin:10px;
-            }
-        }
-    }
-}
-@media screen and(max-width:882px){
-    main{
-        margin:0;
-        padding:0;
-        .navbar{
-            flex-direction: column;
-            position:relative;
-        }
-        .Container{
-            padding-left:0;
-            width:100vw;
-            display:flex;
-            flex-direction: column;
-            height:auto;
-            .title{
-                margin-bottom:40px;
-                text-align: center;
-            }
-            p{
-                padding-left:40px;
-                width:100%;
-            }
-            .info{
-                margin-left: 40px;
-            }
-        }
-    }
-    .navbarOnScroll{
-        background:transparent;
-        color:black;
+    .controlsContainer{
+        position: fixed;
+        bottom:20px;
+        right: 20px;
     }
 }

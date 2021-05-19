@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ThrowStmt } from '@angular/compiler';
-import { ViewportScroller } from '@angular/common';
+import { LiteralMapEntry } from '@angular/compiler/src/output/output_ast';
+import { Component, ElementRef, Host, HostListener, OnInit } from '@angular/core';
+import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-special-offers',
@@ -14,43 +14,30 @@ export class SpecialOffersComponent implements OnInit {
   horrorsNight = false;
   classic = false;
 
-  constructor(private viewprotScroller: ViewportScroller) {}
+  fromMenu = false;
 
-  ngOnInit(): void {}
+  faAngleDoubleUp = faAngleDoubleUp;
 
-  changeFlagStatus(num: number): void {
-    this.clearFlag();
-    switch (num) {
-      case 0:
-        this.forSchool = true;
-        break;
-      case 1:
-        this.forCompanies = true;
-        break;
-      case 2:
-        this.cheapWednesdays = true;
-        break;
-      case 3:
-        this.horrorsNight = true;
-        break;
-      case 4:
-        this.classic = true;
-        break;
-      default:
-        console.log('incorrect value');
-        break;
-    }
-  }
-  clearFlag(): void {
-    this.forSchool = false;
-    this.forCompanies = false;
-    this.cheapWednesdays = false;
-    this.horrorsNight = false;
-    this.classic = false;
+  constructor() {}
+
+
+  ngOnInit(): void {
+    const components = document.querySelector('app-special-offers>main')
+    const sections = document.querySelectorAll('app-special-offers>main>.special-offer-section');
+    console.log(sections)
+    const observer = new IntersectionObserver(this.callback, {root: null, threshold: .5})
+
+    sections.forEach(section => {
+      observer.observe(section);
+    })
   }
 
-  scorllToElement(elementId: string): void {
-    this.viewprotScroller.scrollToAnchor(elementId);
+  callback(entries, observer){
+    entries.forEach(element => {
+      if(element.intersectionRatio > 0.5){
+        location.hash = element.target.id;
+      }
+    });
   }
 
   changeNavBar(): void {
