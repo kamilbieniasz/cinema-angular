@@ -1,6 +1,6 @@
 import { ServiceService } from './../../../services/service.service';
 import { Hour } from './../../../interface/movieInterface';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Movie, Date } from '../../../interface/movieInterface';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -9,8 +9,13 @@ import { Observable } from 'rxjs';
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.scss'],
+  host: {
+    class: 'contentWrapper',
+  },
 })
 export class MovieDetailsComponent implements OnInit {
+  @ViewChild('trailerModal') trailerModal: ElementRef;
+
   movie: Observable<Movie>;
   hours: Date;
   hoursForCurrentDay = [];
@@ -82,21 +87,16 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   showTrailer(): void {
-    const trailer = document.querySelector(
-      'app-movie-details>.movieDetailsContainer>.trailerScreen'
-    );
-    trailer.classList.toggle('showTrailer');
+    this.trailerModal.nativeElement.classList.toggle('showTrailer');
   }
 
   closeTrailer(): void {
-    const trailer = document.querySelector(
-      'app-movie-details>.movieDetailsContainer>.trailerScreen'
+    const currentURL =
+      this.trailerModal.nativeElement.children[0].getAttribute('src');
+    this.trailerModal.nativeElement.children[0].setAttribute(
+      'src',
+      currentURL + '?enablejsapi=1'
     );
-    const iframe = document.querySelector(
-      'app-movie-details>.movieDetailsContainer>.trailerScreen>iframe'
-    );
-    const currentURL = iframe.getAttribute('src');
-    iframe.setAttribute('src', currentURL + '?enablejsapi=1');
-    trailer.classList.remove('showTrailer');
+    this.trailerModal.nativeElement.classList.remove('showTrailer');
   }
 }
