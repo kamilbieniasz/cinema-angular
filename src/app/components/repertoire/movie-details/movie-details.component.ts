@@ -28,11 +28,9 @@ export class MovieDetailsComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.currentDay = new Date(Date.parse(localStorage.getItem('currentDay')));
-    localStorage.setItem('currentMovieId', this.id);
-
     this.id = this.route.snapshot.paramMap.get('id');
+    localStorage.setItem('currentMovieId', this.id);
     await this.service.getMovieById(this.id).toPromise().then( response => {this.movie = response}, err => {this.errorMessage = err });
-    
     this.selectedDay()
     this.hoursValidation();
   }
