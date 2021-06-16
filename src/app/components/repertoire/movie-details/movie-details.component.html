@@ -1,29 +1,30 @@
-<div class="movieDetailsContainer" *ngIf="movie | async as movie">
+<section class="movieDetailsWrapper" *ngIf="movie">
   <p *ngIf="errorMessage">{{errorMessage}}</p>
-  <div class="trailerScreen">
+  <div #trailerModal class="trailerScreen">
     <iframe class="movieIframe" [src]="movie.trailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <button class="closeBtn" (click)="closeTrailer()">
-      <span class="closeBtnStyle">
-      </span>
+      <span class="closeBtnStyle"></span>
     </button>
   </div>
   <img class="movieCover" [src]="movie.cover" [alt]="movie.title" />
-  <span class="movieInfo">
-    <span class="title">
+  <div class="movieInfo">
+    <div class="title">
       <strong>{{ movie.title }}</strong>
-    </span>
-    <span class="description">{{ movie.description }}</span>
-    <span class="otherInfo">
+    </div>
+    <div class="description">{{ movie.description }}</div>
+    <div class="otherInfo">
       Reżyserii: {{ movie.direction }},<br />
       <span *ngIf="movie.cast">Obsada: {{ movie.cast }},<br /></span>
       Premiera: {{ movie.release_date | date: 'dd.MM.yyyy' }}, Czas trwania: {{ movie.duration }}
-    </span><br>
-    <button class="trailer" (click)="showTrailer()">Zobacz trailer</button>
+    </div><br>
+    <div class="trailerBtnContainer">
+      <button class="trailerBtn" (click)="showTrailer()">Zobacz trailer</button>
+    </div>
     <label for="hours" *ngIf="movie" class="order"><strong>Zamów Bilet!</strong></label>
-      <span id="hours" class="hours" >
+      <div id="hours" class="hours" >
         <ul *ngFor="let hour of hoursForCurrentDay">
           <li [routerLink]="['/orders']" (click)="sendData(hour)">{{hour.hour}}</li>
         </ul>
-      </span>
-  </span>
-</div>
+      </div>
+  </div>
+</section>

@@ -1,6 +1,6 @@
 import { ServiceService } from './../../../services/service.service';
 import { Hour } from './../../../interface/movieInterface';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Movie, Date } from '../../../interface/movieInterface';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -9,10 +9,15 @@ import { Observable } from 'rxjs';
   selector: 'app-movie-details',
   templateUrl: './movie-details.component.html',
   styleUrls: ['./movie-details.component.scss'],
+  host: {
+    class: 'contentWrapper',
+  },
 })
 export class MovieDetailsComponent implements OnInit {
-  movie: Observable<Movie>;
-  hours: Date;
+  @ViewChild('trailerModal') trailerModal: ElementRef;
+
+  movie: Movie;
+  date: Date;
   hoursForCurrentDay = [];
   currentDay: globalThis.Date;
   selectedHour: any;
@@ -25,11 +30,8 @@ export class MovieDetailsComponent implements OnInit {
     this.currentDay = new Date(Date.parse(localStorage.getItem('currentDay')));
     this.id = this.route.snapshot.paramMap.get('id');
     localStorage.setItem('currentMovieId', this.id);
-    this.movie = this.service.getMovieById(this.id);
-    this.service
-      .getMovieById(this.id)
-      .subscribe({ error: (err: string) => (this.errorMessage = err) });
-    await this.selectedDay();
+    await this.service.getMovieById(this.id).toPromise().then( response => {this.movie = response}, err => {this.errorMessage = err });
+    this.selectedDay()
     this.hoursValidation();
   }
 
@@ -37,66 +39,43 @@ export class MovieDetailsComponent implements OnInit {
     localStorage.setItem('selectedTime', time.hour);
   }
 
-  async selectedDay(): Promise<any> {
-    await this.movie.toPromise().then((data) => {
-      data.date.forEach((res) => {
-        if (res.day === this.currentDay.getDay()) {
-          this.hours = res;
-        }
-      });
-    });
+  selectedDay(): void {
+    this.movie.date.forEach((date) => {
+      if(date.day === this.currentDay.getDay()) {
+        this.date = date;
+      }
+    })
   }
 
   hoursValidation(): void {
     const currentDate = new Date();
-    let afterSplitArray = [];
-    let hour;
-    let minute: number;
-    if (
-      this.currentDay.getDate() === currentDate.getDate() &&
-      this.currentDay.getMonth() === currentDate.getMonth()
-    ) {
-      this.hours.hours.forEach((res) => {
-        afterSplitArray = res.hour.split(':');
-        afterSplitArray.forEach((value, key) => {
-          if (key % 2 === 0) {
-            hour = value;
-            console.log(typeof value);
-          } else {
-            minute = value;
-          }
-        });
-        hour = parseInt(hour, 10);
-        if (
-          hour > currentDate.getHours() ||
-          (hour === currentDate.getHours() && minute > currentDate.getMinutes())
-        ) {
-          this.hoursForCurrentDay.push(res);
+    if (this.currentDay.getDate() === currentDate.getDate() && this.currentDay.getMonth() === currentDate.getMonth()) {
+      this.date.hours.forEach((hour) => {
+        const splitHour = hour.hour.split(":");
+        const currentHour = new Date().setHours(parseInt(splitHour[0]), parseInt(splitHour[1]), 0);
+        if(new Date(currentHour).getTime() - 30 * 60000 > this.currentDay.getTime()){
+          this.hoursForCurrentDay.push(hour)
         }
       });
     } else {
-      this.hours.hours.forEach((res) => {
-        this.hoursForCurrentDay.push(res);
+      this.date.hours.forEach((hour) => {
+        this.hoursForCurrentDay.push(hour);
       });
     }
   }
 
   showTrailer(): void {
-    const trailer = document.querySelector(
-      'app-movie-details>.movieDetailsContainer>.trailerScreen'
-    );
-    trailer.classList.toggle('showTrailer');
+    this.stopTrailer();
+    this.trailerModal.nativeElement.classList.toggle('showTrailer');
   }
 
   closeTrailer(): void {
-    const trailer = document.querySelector(
-      'app-movie-details>.movieDetailsContainer>.trailerScreen'
-    );
-    const iframe = document.querySelector(
-      'app-movie-details>.movieDetailsContainer>.trailerScreen>iframe'
-    );
-    const currentURL = iframe.getAttribute('src');
-    iframe.setAttribute('src', currentURL + '?enablejsapi=1');
-    trailer.classList.remove('showTrailer');
+    this.stopTrailer();
+    this.trailerModal.nativeElement.classList.remove('showTrailer');
+  }
+
+  stopTrailer(): void{
+    const currentURL = this.trailerModal.nativeElement.children[0].getAttribute('src');
+    this.trailerModal.nativeElement.children[0].setAttribute('src', currentURL + '?enablejsapi=1');
   }
 }

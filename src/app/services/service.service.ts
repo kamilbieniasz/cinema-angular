@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { ErrorCallback } from 'typescript';
 
 @Injectable({
   providedIn: 'root',
@@ -16,26 +15,19 @@ export class ServiceService {
   constructor(private http: HttpClient) {}
 
   getMovies(): Observable<Movie[]> {
-    const response = this.http.get<Movie[]>(this.url + '/movies');
-    return response;
+    return this.http.get<Movie[]>(this.url + '/movies');
   }
 
   getMovieById(id: string): Observable<Movie> {
-    return this.http
-      .get<Movie>(this.url + '/movies/' + id)
-      .pipe(catchError(this.handleError));
+    return this.http.get<Movie>(this.url + '/movies/' + id).pipe(catchError(this.handleError));
   }
 
   patchMovie(movie: Partial<Movie>): Observable<Partial<Movie>> {
-    return this.http
-      .patch(this.url + '/movies/' + movie.id, movie)
-      .pipe(catchError(this.handleError));
+    return this.http.patch(this.url + '/movies/' + movie.id, movie).pipe(catchError(this.handleError));
   }
 
   public getPriceList(): Observable<any> {
-    return this.http
-      .get(this.url + '/price')
-      .pipe(catchError(this.handleError));
+    return this.http.get(this.url + '/price').pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {
