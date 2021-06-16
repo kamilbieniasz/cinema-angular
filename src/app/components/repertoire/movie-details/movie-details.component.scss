@@ -87,6 +87,10 @@
     left: 50%;
     transform: translateX(-50%);
 
+    &.showTrailer {
+      display: flex;
+    }
+
     &>iframe {
       width: 60vw;
       height: 60vh;
@@ -125,8 +129,4 @@
       }
     }
   }
-}
-
-.showTrailer {
-  display: flex !important;
 }
