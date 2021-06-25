@@ -1,5 +1,5 @@
 import { Movie } from './../../interface/movieInterface';
-import { ServiceService } from './../../services/service.service';
+import { MovieService } from '../../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -24,7 +24,7 @@ export class RepertoireComponent implements OnInit {
   isLoading = true;
 
   constructor(
-    private service: ServiceService
+    private service: MovieService
   ) { }
 
   ngOnInit(): void {

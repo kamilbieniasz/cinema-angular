@@ -1,4 +1,4 @@
-import { ServiceService } from './../../../../services/service.service';
+import { MovieService } from '../../../../services/movie.service';
 import {
   Movie,
   Hour,
@@ -29,7 +29,7 @@ export class OrderTicketComponent implements OnInit {
 
 
   constructor(
-    private service: ServiceService,
+    private service: MovieService,
     private router: Router
   ) {}
 

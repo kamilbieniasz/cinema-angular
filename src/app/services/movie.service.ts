@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class ServiceService {
+export class MovieService {
   private url = 'https://cinemaniak-db.herokuapp.com/api';
   currentDay: globalThis.Date;
   currentMovie: Movie;

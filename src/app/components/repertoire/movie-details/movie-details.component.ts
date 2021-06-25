@@ -1,4 +1,4 @@
-import { ServiceService } from './../../../services/service.service';
+import { MovieService } from '../../../services/movie.service';
 import { Hour } from './../../../interface/movieInterface';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Movie, Date } from '../../../interface/movieInterface';
@@ -23,7 +23,7 @@ export class MovieDetailsComponent implements OnInit {
   private id: string;
   errorMessage: string;
 
-  constructor(private service: ServiceService, private route: ActivatedRoute) {}
+  constructor(private service: MovieService, private route: ActivatedRoute) {}
 
   async ngOnInit(): Promise<void> {
     this.currentDay = new Date(Date.parse(localStorage.getItem('currentDay')));

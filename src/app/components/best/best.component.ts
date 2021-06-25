@@ -1,4 +1,4 @@
-import { ServiceService } from './../../services/service.service';
+import { MovieService } from '../../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/interface/movieInterface';
 
@@ -18,7 +18,7 @@ export class BestComponent implements OnInit {
   // isLoading = false;
 
   constructor(
-    private service: ServiceService,
+    private service: MovieService,
   ) {}
 
   async ngOnInit(): Promise<void> {

@@ -1,4 +1,4 @@
-import { ServiceService } from './../../services/service.service';
+import { MovieService } from '../../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { Price } from 'src/app/interface/priceListInterface';
 
@@ -16,7 +16,7 @@ export class PriceListComponent implements OnInit {
 
   isLoading = true;
 
-  constructor(private service: ServiceService) {}
+  constructor(private service: MovieService) {}
 
   ngOnInit(): void {
     this.service.getPriceList().subscribe(
