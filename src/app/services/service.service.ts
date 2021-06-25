@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ServiceService {
-  private url = 'https://cinemaniak-db.herokuapp.com';
+  private url = 'https://cinemaniak-db.herokuapp.com/api';
   currentDay: globalThis.Date;
   currentMovie: Movie;
 
@@ -18,8 +18,16 @@ export class ServiceService {
     return this.http.get<Movie[]>(this.url + '/movies');
   }
 
+  getBestThreeMovies(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.url + '/best-three');
+  }
+  
+  getLastThreeMovies(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(this.url + '/last-three');
+  }
+
   getMovieById(id: string): Observable<Movie> {
-    return this.http.get<Movie>(this.url + '/movies/' + id).pipe(catchError(this.handleError));
+    return this.http.get<Movie>(this.url + '/movie/' + id).pipe(catchError(this.handleError));
   }
 
   patchMovie(movie: Partial<Movie>): Observable<Partial<Movie>> {

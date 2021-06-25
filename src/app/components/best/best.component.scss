@@ -33,6 +33,7 @@
         animation: scaleSpan 0.7s infinite alternate;
         color: white;
         text-align: center;
+        margin-bottom: 0;
 
         @keyframes scaleSpan {
           from {
@@ -46,7 +47,7 @@
       }
 
       &>ngb-carousel {
-        padding: 20px 50px 50px 50px;
+        padding: 0 50px 50px 50px;
 
         .picsum-img-wrapper {
           &>img {

@@ -3,34 +3,32 @@
     <h1>Polecane przez nas filmy</h1>
     <p *ngIf="errorMessage">{{errorMessage}}</p>
   </header>
-  <div class="slidersContainer" *ngIf="!isLoading">
-    <div class="slider">
+  <div class="slidersContainer">
+    <div class="slider" *ngIf="latestMovies">
       <h2 class="type">Najnowsze</h2>
-      <ngb-carousel *ngIf="imagesLatest">
-        <ng-container *ngFor="let latest of latest; let i = index">
+      <ngb-carousel>
+        <ng-container *ngFor="let last of latestMovies; let i = index">
           <ng-template ngbSlide>
             <div class="picsum-img-wrapper">
-              <img tabindex="6" (click)="sendMovie(latest)" [routerLink]="['/movies', latest.id]"
-                [src]="imagesLatest[i]" alt="Random first slide" />
+              <img tabindex="6" [routerLink]="['/movies', last.id]" [src]="last.cover" alt="Random first slide" />
             </div>
           </ng-template>
         </ng-container>
       </ngb-carousel>
     </div>
 
-    <div class="slider">
+    <div class="slider" *ngIf="bestMovies">
       <h2 class="type">Najlepsze</h2>
-      <ngb-carousel *ngIf="imagesBest">
-        <ng-container *ngFor="let best of best; let i = index">
+      <ngb-carousel>
+        <ng-container *ngFor="let best of bestMovies; let i = index">
           <ng-template ngbSlide>
             <div class="picsum-img-wrapper">
-              <img tab-index="6" (click)="sendMovie(best)" [routerLink]="['/movies', best.id]" [src]="imagesBest[i]"
-                alt="Random first slide" />
+              <img tab-index="6" [routerLink]="['/movies', best.id]" [src]="best.cover" alt="Random first slide" />
             </div>
           </ng-template>
         </ng-container>
       </ngb-carousel>
     </div>
   </div>
-  <mat-progress-spinner *ngIf="isLoading" mode="indeterminate"> </mat-progress-spinner>
+  <mat-progress-spinner *ngIf="!bestMovies && !latestMovies" mode="indeterminate"> </mat-progress-spinner>
 </section>

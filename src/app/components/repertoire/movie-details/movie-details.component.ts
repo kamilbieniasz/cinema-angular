@@ -3,7 +3,6 @@ import { Hour } from './../../../interface/movieInterface';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Movie, Date } from '../../../interface/movieInterface';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movie-details',
@@ -35,7 +34,7 @@ export class MovieDetailsComponent implements OnInit {
     this.hoursValidation();
   }
 
-  sendData(time: Hour): void {
+  saveData(time: Hour): void {
     localStorage.setItem('selectedTime', time.hour);
   }
 
