@@ -30,6 +30,10 @@ export class MovieService {
     return this.http.get<Movie>(this.url + '/movie/' + id).pipe(catchError(this.handleError));
   }
 
+  getPlaces(id: string, date): Observable<any> {
+    return this.http.post<any>(this.url + '/movie-places/' + id, date).pipe(catchError(this.handleError));
+  }
+
   patchMovie(movie: Partial<Movie>): Observable<Partial<Movie>> {
     return this.http.patch(this.url + '/movies/' + movie.id, movie).pipe(catchError(this.handleError));
   }
