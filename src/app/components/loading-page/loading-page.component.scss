@@ -1,0 +1,150 @@
+@import '../../../assets/scss/colors';
+ .loadingPageWrapper{
+
+    .camera-container{
+        display:flex;
+        align-items:flex-end;
+
+        @keyframes rotation {
+            0% {
+              transform: rotate(0);
+            }
+            100% {
+              transform: rotate(360deg);
+            }
+        }
+        
+        @mixin circle{
+        background-color:$color-black;
+        border-radius:50%;
+        position: relative;
+        animation: rotation 10s linear infinite;
+        
+        }
+        @mixin smallerCircle{
+        position:absolute;
+        background-color:$color-white;
+        border-radius:50%;
+        left:50%;
+        top:50%;
+        transform: translateX(-50%) translateY(-50%);
+        }
+  
+    .big-circle{
+      @include circle;
+      width:150px;
+      height:150px;
+  
+      & > .circle{
+        @include smallerCircle;
+        width:20px;
+        height:20px;
+  
+        &:nth-child(1){
+          top: 15px;
+        }
+
+        &:nth-child(2){
+          top: 45px;
+          left: 125px;
+        }
+  
+        &:nth-child(3){
+          top: 105px;
+          left:125px;
+        }
+  
+        &:nth-child(4){
+          top:135px;
+        }
+  
+        &:nth-child(5){
+          top:105px;
+          left:25px;
+        }
+
+        &:nth-child(6){
+          top:45px;
+          left:25px;
+        }
+
+        &:nth-child(7){
+          width:30px;
+          height:30px;
+        }
+      }
+    }
+  
+    .small-circle{
+      @include circle;
+      width: 120px;
+      height: 120px;
+      
+      .circle{
+        @include smallerCircle;
+        width:15px;
+        height:15px;
+        
+        &:nth-child(1){
+          top:15px;
+        }
+
+        &:nth-child(2){
+          top: 40px;
+          left: 100px;
+        }
+
+        &:nth-child(3){
+          top:80px;
+          left:100px;
+        }
+
+        &:nth-child(4){
+          top:105px;
+        }
+
+        &:nth-child(5){
+          top:40px;
+          left: 20px;
+        }
+
+        &:nth-child(6){
+          top:80px;
+          left: 20px;
+        }
+
+        &:nth-child(7){
+          width:25px;
+          height:25px;
+        }
+      }
+    }
+  }
+  .camera{
+    width:300px;
+    height:180px;
+    background-color:$color-black;
+    border-radius:15px;
+    position:relative;
+    
+    .lens{
+      position:absolute;
+      top:10%;
+      left:260px;
+      width: 0;
+        height: 0;
+        border-top: 70px solid transparent;
+        border-right: 80px solid $color-black;
+        border-bottom: 70px solid transparent;
+    
+    }
+  }
+  .information{
+      margin-top:20px;
+      text-align: center;
+  }
+}
+  
+  
+  
+  

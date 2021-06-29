@@ -23,6 +23,7 @@ import { ForCompanyComponent } from './components/special-offers/for-company/for
 import { CheapWednesdayComponent } from './components/special-offers/cheap-wednesday/cheap-wednesday.component';
 import { HorrorNightComponent } from './components/special-offers/horror-night/horror-night.component';
 import { ClassicMovieComponent } from './components/special-offers/classic-movie/classic-movie.component';
+import { LoadingPageComponent } from './components/loading-page/loading-page.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ClassicMovieComponent } from './components/special-offers/classic-movie
     CheapWednesdayComponent,
     HorrorNightComponent,
     ClassicMovieComponent,
+    LoadingPageComponent,
   ],
   imports: [
     BrowserModule,
