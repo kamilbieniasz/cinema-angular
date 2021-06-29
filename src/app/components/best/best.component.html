@@ -1,5 +1,5 @@
 <section class="bestMovieWrapper">
-  <header>
+  <header *ngIf="latestMovies">
     <h1>Polecane przez nas filmy</h1>
     <p *ngIf="errorMessage">{{errorMessage}}</p>
   </header>
@@ -30,5 +30,5 @@
       </ngb-carousel>
     </div>
   </div>
-  <mat-progress-spinner *ngIf="!bestMovies && !latestMovies" mode="indeterminate"> </mat-progress-spinner>
+  <app-loading-page *ngIf="!bestMovies && !latestMovies" mode="indeterminate"> </app-loading-page>
 </section>
