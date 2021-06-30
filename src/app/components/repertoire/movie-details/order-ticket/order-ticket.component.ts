@@ -5,8 +5,8 @@ import {
   Date,
   Place,
 } from './../../../../interface/movieInterface';
-import { AfterViewInit, Component, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { Observable } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 
@@ -20,16 +20,19 @@ import { Router } from '@angular/router';
 })
 
 export class OrderTicketComponent implements OnInit, AfterViewInit {
-  @ViewChildren('place') placesNode:QueryList<any>
+  @ViewChildren('place') placesNode:QueryList<ElementRef>
 
   movie: Movie;
   time: Hour;
   hours: Date;
   itemNumber: number;
-  currentDay;
+  price: number;
+  selectedDate;
+  selectedTime;
   private movieID: string;
   errorMessage
-  places;
+  places = [];
+  selectedPlaces = [];
 
 
   constructor(
@@ -39,15 +42,11 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
 
   async ngOnInit(): Promise<void> {
     this.movieID = localStorage.getItem('currentMovieId');
-    await this.service.getMovieById(this.movieID).toPromise().then( response => {this.movie = response}, err => {this.errorMessage = err }); 
-    // console.log(this.movie);
+    await this.service.getMovieById(this.movieID).toPromise().then( response => {this.movie = response}, err => {this.errorMessage = err });
 
     this.getPlaces();
-    // console.log(this.placesNode);
-
-    // this.placesNode.toArray().forEach(place => {
-    //   console.log(place);
-    // })
+    this.selectedDate = localStorage.getItem('currentDay');
+    this.selectedTime = localStorage.getItem('selectedTime')
   }
 
   async ngAfterViewInit(): Promise<void> {
@@ -71,5 +70,24 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
     this.service.getPlaces(this.movieID, date).subscribe(response => {
       this.places = response;
     });
+  }
+
+  choosePlace(selectedPlace: number) {
+    this.placesNode.forEach(place => {
+      if(place.nativeElement.number == selectedPlace + 1){
+        place.nativeElement.classList.toggle('selected');
+        if(this.selectedPlaces.indexOf(place.nativeElement.number) === -1){
+          this.selectedPlaces.push(place.nativeElement.number);
+        } else {
+          this.selectedPlaces.splice(this.selectedPlaces.indexOf(place.nativeElement.number), 1);
+        }
+      }
+    });
+
+    this.calculatePrice();
+  }
+
+  calculatePrice(): void {
+    this.price = this.selectedPlaces.length * 35;
   }
 }

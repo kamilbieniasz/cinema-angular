@@ -35,6 +35,8 @@ export class RepertoireComponent implements OnInit {
       this.day();
       // this.getDay(this.currentDay);
       this.sortMovieForList();
+
+      console.log(this.date);
     });
   }
 
