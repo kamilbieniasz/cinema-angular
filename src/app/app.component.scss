@@ -1,7 +1,13 @@
+@import '../assets/scss/mixins';
+
 main{
     height: 100vh;
     display:flex;
     flex-direction: column;
+
+    @include respond-to(max-width, 768px){
+        min-height: 100vh;
+    }
 
     ::ng-deep .contentWrapper{
         height:100%;
@@ -9,9 +15,9 @@ main{
         justify-content:center;
         align-items: center;
 
-        @media screen and(max-width:768px){
-            height: 100%;
-            // height:fit-content;
+        @include respond-to(max-width, 768px) {
+            // height: 100%;
+            height:fit-content;
         }
     }
 
