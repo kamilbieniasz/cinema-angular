@@ -18,8 +18,8 @@
     <hr class="line" *ngIf="!isLoading"/>
     <div class="filmContainer" *ngIf="!isLoading">
         <p *ngIf="errorMessage">{{errorMessage}}</p>
-        <ul *ngFor="let movie of currentMovies">
-            <li>
+        <ul>
+            <li *ngFor="let movie of currentMovies">
                 <span class="movieInfoContainer">
                     <img [src]="movie.cover"/>
                     <span class="movieDescription">
