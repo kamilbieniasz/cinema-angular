@@ -44,9 +44,10 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
     this.movieID = localStorage.getItem('currentMovieId');
     await this.service.getMovieById(this.movieID).toPromise().then( response => {this.movie = response}, err => {this.errorMessage = err });
 
+    this.selectedDate = new Date(localStorage.getItem('currentDay'));
+    this.selectedTime = localStorage.getItem('selectedTime');
     this.getPlaces();
-    this.selectedDate = localStorage.getItem('currentDay');
-    this.selectedTime = localStorage.getItem('selectedTime')
+
   }
 
   async ngAfterViewInit(): Promise<void> {
@@ -56,19 +57,20 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
         place.nativeElement.status === "true" ? place.nativeElement.classList.add('free') : place.nativeElement.classList.add('taken');
       });
     })
-    
-    // this.placesNode.toArray().forEach(place => {
-    //   console.log(place);
-    // })
   }
 
   getPlaces() {
     const date = {
-      date: "2021-06-18",
-      time: "21:00"
+      // date: this.selectedDate.getFullYear() + "-" + this.selectedDate.getMonth() + "-" + this.selectedDate.getDate(),
+      date: "2021-07-02",
+      time: this.selectedTime
     };
+
+    console.log(date)
+
     this.service.getPlaces(this.movieID, date).subscribe(response => {
       this.places = response;
+      console.log(this.places)
     });
   }
 
@@ -89,5 +91,21 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
 
   calculatePrice(): void {
     this.price = this.selectedPlaces.length * 35;
+  }
+
+  bookPlace(): void {
+    const formattedDate = this.selectedDate.getFullYear() + "-" + this.selectedDate.getMonth() + "-" + this.selectedDate.getDate();
+
+    const date = {
+      id: this.movieID,
+      date: "2021-06-03",
+      time: this.selectedTime,
+      places: this.selectedPlaces
+    }
+
+    console.log(date);
+    this.service.bookPlace(date).subscribe(response => {
+      console.log(response);
+    });
   }
 }

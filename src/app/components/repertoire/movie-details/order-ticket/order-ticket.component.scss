@@ -89,6 +89,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+        & > .title{
+          text-align: center;
+        }
           
           & > .selectedPlacesContainer{
             display:grid;

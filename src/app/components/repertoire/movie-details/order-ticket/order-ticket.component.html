@@ -26,7 +26,7 @@
             <p *ngFor="let selectedPlace of selectedPlaces" class="selectedPlace"> {{selectedPlace}}, </p>
         </div>
         <p>Cena: {{price}} zł</p>
-        <button class="orderBtn" (click)="patchItem()">Zatwierdź zamówienie</button>
+        <button class="orderBtn" (click)="bookPlace()">Zatwierdź zamówienie</button>
         <div class="legend">
             <span class="legendPlaceContainer"><span class="place free"></span><p>- Wolne stanowisko</p></span>
             <span class="legendPlaceContainer"><span class="place selected"></span><p>- Zajęte stanowisko</p></span>
