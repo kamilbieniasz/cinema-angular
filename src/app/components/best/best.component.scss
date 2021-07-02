@@ -1,4 +1,6 @@
 @import '../../../assets/scss/colors';
+@import '../../../assets/scss/mixins';
+@import '../../../assets/scss/fonts';
 
 .bestMovieWrapper {
   width: 100%;
@@ -7,11 +9,22 @@
   justify-content: center;
   align-items: center;
 
+  @include respond-to(max-width, 768px){
+    margin-top: 20px;
+  }
+
   &>header {
     display: flex;
     justify-content: center;
     align-items: center;
     margin:20px 0;
+
+    &>h1{
+      @include respond-to(max-width, 768px){
+        font-size: $first-title;
+        text-align: center;
+      }
+    }
   }
 
   &>.slidersContainer {
@@ -19,7 +32,7 @@
     display: flex;
     justify-content: space-evenly;
 
-    @media screen and (max-width:768px) {
+    @include respond-to(max-width, 768px){
       flex-direction: column;
       width: auto;
     }
@@ -28,12 +41,20 @@
       background-color: $dark-blue;
       border-radius: 15px;
 
+      @include respond-to(max-width, 768px){
+        margin: 20px 0;
+      }
+
       &>.type {
         padding: 20px;
         animation: scaleSpan 0.7s infinite alternate;
         color: white;
         text-align: center;
         margin-bottom: 0;
+        
+        @include respond-to(max-width, 768px){
+          animation: none;
+        }
 
         @keyframes scaleSpan {
           from {
@@ -57,7 +78,7 @@
 
             @media screen and (max-width: 768px) {
               width: auto;
-              height: 200px;
+              height: 300px;
             }
           }
         }
