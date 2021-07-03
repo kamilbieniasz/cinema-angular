@@ -1,7 +1,12 @@
 @import '../../../assets/scss/colors';
+@import '../../../assets/scss/mixins';
+
  .loadingPageWrapper{
 
-    .camera-container{
+  @include respond-to(max-width, 768px){
+    transform: scale(0.6);
+  }
+    & > .camera-container{
         display:flex;
         align-items:flex-end;
 
@@ -30,7 +35,7 @@
         transform: translateX(-50%) translateY(-50%);
         }
   
-    .big-circle{
+    & > .big-circle{
       @include circle;
       width:150px;
       height:150px;
@@ -75,12 +80,12 @@
       }
     }
   
-    .small-circle{
+    & > .small-circle{
       @include circle;
       width: 120px;
       height: 120px;
       
-      .circle{
+      & > .circle{
         @include smallerCircle;
         width:15px;
         height:15px;
