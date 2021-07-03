@@ -16,12 +16,20 @@ main{
         justify-content: center;
         // align-items: center;
 
-
         @include respond-to(max-width, 768px){
             height: 100%;
             margin-top:40px;
             flex: 1;
         }
+
+        @include respond-to(max-width, 1366px){
+            margin-top:60px;
+        }
+
+        @include respond-to(min-width, 1366px){
+            margin-top:80px;
+        }
+
     }
 
     & > .footerWrapper{
