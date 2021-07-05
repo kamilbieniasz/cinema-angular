@@ -1,6 +1,6 @@
 <section class="priceWrapper">
-    <p *ngIf="errorMessage">{{errorMessage}}</p>
-    <div class="priceListContainer">
+    <!-- <p *ngIf="errorMessage">{{errorMessage}}</p> -->
+    <div class="priceListContainer" *ngIf="!isLoading">
         <h2 class="title">Ceny biletów:</h2>
         <ng-container class="ticketContainer" class="ticketContainer" *ngIf="!isLoading">
             <p *ngFor="let price of priceList">
@@ -8,9 +8,8 @@
                 <span class="ticketCost">{{price.price}}zł</span>
             </p>
         </ng-container>
-        <mat-progress-spinner *ngIf="isLoading" mode="indeterminate"> </mat-progress-spinner>
     </div>
-    <div class="discount">
+    <div class="discount" *ngIf="!isLoading">
         <h2 class="title">
             Im wcześniej kupisz bilet tym lepiej!
         </h2>
@@ -36,4 +35,5 @@
             <p>*Bilet na filmy z oznaczeniem classic - z szacunku do klasyków wszystkie klasyczne filmy taniej!</p>
         </span>
     </div>
+    <app-loading-page *ngIf="isLoading" mode="indeterminate"> </app-loading-page>
 </section>

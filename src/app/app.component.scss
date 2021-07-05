@@ -1,27 +1,33 @@
+@import '../assets/scss/mixins';
+
 main{
     height: 100vh;
     display:flex;
     flex-direction: column;
 
+    @include respond-to(max-width, 768px){
+        height: auto;
+        min-height: 100vh;
+    }
+
     ::ng-deep .contentWrapper{
         margin-top: 80px;
         height:calc(100% - 80px);
         display:flex;
-        justify-content:center;
-        align-items: center;
+        justify-content: center;
+        // align-items: center;
 
         @media screen and (min-width:768px) and (max-width:1366px){
             height: 100%;
             margin-top:60px;
             height:calc(100% - 60px);
         }
+
     }
 
     & > .footerWrapper{
         width:100%;
-        display:inline-block;
-        justify-self: flex-end;
-        z-index:11;
+        flex-shrink: 0;
     }
 }
 

@@ -37,11 +37,7 @@ export class MovieService {
   bookPlaces(date): Observable<any> {
     return this.http.post<any>(this.url + '/places', date).pipe(catchError(this.handleError));
   }
-
-  public getPriceList(): Observable<any> {
-    return this.http.get(this.url + '/price').pipe(catchError(this.handleError));
-  }
-
+  
   private handleError(error: HttpErrorResponse) {
     console.error(
       `Name: ${error.name} \n` +

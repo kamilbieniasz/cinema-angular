@@ -1,25 +1,35 @@
 @import '../../../assets/scss/fonts';
+@import '../../../assets/scss/colors';
+@import '../../../assets/scss/mixins';
 
 .priceWrapper {
+  width:100%;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  margin: auto;
 
-  @media screen and (max-width:1024px) {
+  @include respond-to(max-width, 1024px) {
       flex-direction: column;
   }
 
   &>.priceListContainer {
-    font-size: $first-title;
-    padding: 40px;
+    white-space:nowrap;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 40px 40px 40px;
+
+    @include respond-to(max-width, 768px) {
+      white-space: normal;
+    }
 
     &>.title {
       text-align: center;
-      padding: $second-title;
-      overflow-x: auto;
+      padding: 0;
+
+      // @include respond-to(max-width, 768px) {
+      //   font-size: $third-title;
+      // }
     }
 
     &>p {
@@ -28,9 +38,13 @@
       display: grid;
       grid-template-areas: "name cost";
 
-      &>* {
+      &> span {
         padding: 0 10px;
-        font-size:$big-font;
+        font-size:$third-title;
+
+        @include respond-to(max-width, 768px){
+          font-size:unset;
+        }
       }
 
       &>.ticketName {
@@ -52,6 +66,12 @@
 
     &>.title {
       white-space: nowrap;
+      text-align: center;
+
+      @include respond-to(max-width, 768px) {
+        white-space:normal;
+        // font-size: $third-title;
+      }
     }
 
     & > span {
@@ -61,13 +81,17 @@
       padding: 50px;
     }
 
-    .normalTicket {
+    & > .normalTicket {
       text-align: center;
       font-size: $small-font;
     }
 
     & > table {
       border: 1px solid black;
+
+      @include respond-to(max-width,768px) {
+        transform: scale(0.8)
+      }
 
       & > tr {
         border: 1px solid black;
@@ -86,11 +110,13 @@
       }
     }
 
-    .info {
+    & > .info {
+      width:fit-content;
       display: flex;
       flex-direction: column;
 
-      p {
+      & > p {
+        width:fit-content;
         margin: 0;
         font-size: $small-font;
       }
