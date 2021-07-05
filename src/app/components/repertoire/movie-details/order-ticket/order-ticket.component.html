@@ -1,41 +1,36 @@
-<main *ngIf="movie">
-<div class="shortDescription" >
-    <h1 class="title"><strong>{{movie.title}}</strong></h1><br>
-    <p class="time">{{selectedTime}}</p>
-</div>
-<hr>
-<div class="Container">
+<section class="orderWrapper" *ngIf="movie">
     <div class="gridContainer">
         <span class="screenContainer">
-            <span class="screen"></span>
+            <iframe class="screen" [src]="movie.trailer | safe: 'resourceUrl'" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </span>
         <p *ngIf="errorMessage">{{errorMessage}}</p>
         <ul>
             <li *ngFor="let place of places; let i=index;"
-                class="place" 
-                id="place" 
-                (click)="selectedItem(i)" 
-                [disabled]="place.free === false" 
-                [ngClass]="{taken: place.free === false,free: place.free === true}">
-            {{place.number}}
+                class="place"
+                (click)="choosePlace(i)" 
+                [disabled]="place.free === false"
+                data-status={{place.free}}
+                data-number={{place.number}}
+                #place>
+                {{i + 1}}
             </li>
         </ul>
     </div>
     <div class="orderInfo">
+        <h1 class="title"><strong>{{movie.title}}</strong></h1><br>
         <h3>Informacje o zamówieniu:</h3>
-        <p>Tytuł: {{movie.title}},</p>
-        <p>Data: {{currentDay | date:"dd.MM.yyyy"}},</p>
+        <p>Data: {{selectedDate | date:"dd.MM.yyyy"}},</p>
         <p>Godzina: {{selectedTime}},</p>
-        <span class="placesContainer"><p *ngIf="selectedPlaces.length>0">Miejsca:</p>
-        <p *ngFor="let selectedPlace of selectedPlaces" class="selectedPlace"> {{selectedPlace.number}}, </p></span>
-        <p *ngIf="selectedPlaces.length>0">Cena: {{price}} zł</p>
-        <button class="orderBtn" (click)="patchItem()" *ngIf="selectedPlaces.length>0">Zatwierdź zamówienie</button>
+        <h2>Miejsca:</h2>
+        <div class="selectedPlacesContainer">
+            <p *ngFor="let selectedPlace of selectedPlaces" class="selectedPlace"> {{selectedPlace}}, </p>
+        </div>
+        <p>Cena: {{price}} zł</p>
+        <button class="orderBtn" (click)="bookPlace()">Zatwierdź zamówienie</button>
+        <div class="legend">
+            <span class="legendPlaceContainer"><span class="place free"></span><p>- Wolne stanowisko</p></span>
+            <span class="legendPlaceContainer"><span class="place selected"></span><p>- Zajęte stanowisko</p></span>
+            <span class="legendPlaceContainer"><span class="place taken"></span><p>- Zaznaczone stanowisko</p></span>
+        </div>
     </div>
-</div>
-<hr>
-<div class="legend">
-    <span class="legendPlaceContainer"><span class="place free"></span><p>- Wolne stanowisko</p></span>
-    <span class="legendPlaceContainer"><span class="place taken-before"></span><p>- Zajęte stanowisko</p></span>
-    <span class="legendPlaceContainer"><span class="place taken"></span><p>- Zaznaczone stanowisko</p></span>
-</div>
-</main>
+</section>

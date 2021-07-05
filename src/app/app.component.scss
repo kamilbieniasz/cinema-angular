@@ -11,23 +11,16 @@ main{
     }
 
     ::ng-deep .contentWrapper{
-        height:100%;
+        margin-top: 80px;
+        height:calc(100% - 80px);
         display:flex;
         justify-content: center;
         // align-items: center;
 
-        @include respond-to(max-width, 768px){
+        @media screen and (min-width:768px) and (max-width:1366px){
             height: 100%;
-            margin-top:40px;
-            flex: 1;
-        }
-
-        @include respond-to(max-width, 1366px){
             margin-top:60px;
-        }
-
-        @include respond-to(min-width, 1366px){
-            margin-top:80px;
+            height:calc(100% - 60px);
         }
 
     }
