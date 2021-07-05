@@ -8,29 +8,28 @@
   align-items: center;
 
   & .free {
-    background-color: #175185;
+    background-color: $free-place;
   }
 
   & .selected {
-    background-color: orange;
-    // pointer-events: none;
+    background-color: $selected-place;
   }
   & .taken {
-    background-color: #102c46;
+    background-color: $taken-place;
     pointer-events: none;
   }
 
   & .place{
     width: 40px;
     height: 40px;
-    border: 2px solid #102c46;
+    border: 2px solid $dark-blue;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    color:white;
+    color:$color-white;
   }
 
   & > .shortDescription {
@@ -58,10 +57,9 @@
         & > .screen{
           width: 100%;
           height: 250px;
-          border: 1px solid black;
-          background-color: #efefef;
+          border: 1px solid $color-black;
           display:flex;
-          box-shadow: 0 0 20px 15px #175185;
+          box-shadow: 0 0 20px 15px $light-blue;
           z-index: 10;
           transform: rotateX(-35deg);
         }
@@ -77,13 +75,13 @@
         & > .place {
 
           &:hover{
-            background: linear-gradient(to right, #102c46, #175185, #102c46);
-            color: white;
+            background: $gradient-blue;
+            color: $color-white;
           }
         }
       }
     }
-    .orderInfo {
+    & > .orderInfo {
       width: 50%;
       display: flex;
       flex-direction: column;
@@ -102,7 +100,7 @@
               margin:10px;
               border-radius:50%;
               background-color:$light-blue;
-              color:white;
+              color:$color-white;
             }
           }
 
@@ -119,21 +117,23 @@
           }
         }
       }
-      .orderBtn {
+      & > .orderBtn {
         width: 200px;
         height: 40px;
         border-radius: 10px;
         background: transparent;
-        border: 2px solid #102c46;
+        border: 2px solid $dark-blue;
         margin: 20px;
-      }
-      .orderBtn:hover {
-        background: linear-gradient(to right, #102c46, #175185, #102c46);
-        color: white;
-        transform: scale(1.1);
-      }
-      .orderBtn:focus {
-        outline: none;
+
+        &:hover{
+          background: $gradient-blue;
+          color: $color-white;
+          transform: scale(1.1);
+        }
+
+        &:focus{
+          outline: none;
+        }
       }
     }
 }

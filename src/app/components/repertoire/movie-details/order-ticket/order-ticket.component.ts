@@ -62,7 +62,7 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
   getPlaces() {
     const date = {
       // date: this.selectedDate.getFullYear() + "-" + this.selectedDate.getMonth() + "-" + this.selectedDate.getDate(),
-      date: "2021-07-02",
+      date: this.selectedDate,
       time: this.selectedTime
     };
 
@@ -98,13 +98,13 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
 
     const date = {
       id: this.movieID,
-      date: "2021-06-03",
+      date: this.selectedDate,
       time: this.selectedTime,
       places: this.selectedPlaces
     }
 
     console.log(date);
-    this.service.bookPlace(date).subscribe(response => {
+    this.service.bookPlaces(date).subscribe(response => {
       console.log(response);
     });
   }
