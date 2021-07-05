@@ -10,15 +10,10 @@ main{
         justify-content:center;
         align-items: center;
 
-        // @media screen and(max-width:768) {
-            
-        // }
-
         @media screen and (min-width:768px) and (max-width:1366px){
             height: 100%;
             margin-top:60px;
             height:calc(100% - 60px);
-            // height:fit-content;
         }
     }
 
