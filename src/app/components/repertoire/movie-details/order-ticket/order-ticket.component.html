@@ -1,8 +1,8 @@
 <section class="orderWrapper" *ngIf="movie">
     <div class="gridContainer">
-        <span class="screenContainer">
+        <div class="screenContainer">
             <iframe class="screen" [src]="movie.trailer | safe: 'resourceUrl'" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </span>
+        </div>
         <p *ngIf="errorMessage">{{errorMessage}}</p>
         <ul>
             <li *ngFor="let place of places; let i=index;"
