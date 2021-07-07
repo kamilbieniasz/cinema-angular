@@ -15,8 +15,8 @@
             </option>
         </select>
     </div>
-    <hr class="line" *ngIf="!isLoading"/>
-    <div class="filmContainer" *ngIf="!isLoading">
+    <hr class="line" *ngIf="movies.length > 0"/>
+    <div class="filmContainer" *ngIf="movies.length > 0">
         <p *ngIf="errorMessage">{{errorMessage}}</p>
         <ul>
             <li *ngFor="let movie of currentMovies">
@@ -31,7 +31,7 @@
             </li>
         </ul>
     </div>
-    <div class="loadingContainer">
-        <app-loading-page *ngIf="isLoading" mode="indeterminate"> </app-loading-page>
+    <div class="loadingContainer" *ngIf="!movies.length">
+        <app-loading-page mode="indeterminate"> </app-loading-page>
     </div>
 </section>

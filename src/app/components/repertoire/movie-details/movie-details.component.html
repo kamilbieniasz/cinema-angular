@@ -1,13 +1,13 @@
-<section class="movieDetailsWrapper" *ngIf="movie">
+<section class="movieDetailsWrapper">
   <p *ngIf="errorMessage">{{errorMessage}}</p>
-  <div #trailerModal class="trailerScreen">
+  <div #trailerModal class="trailerScreen" *ngIf="movie">
     <iframe class="movieIframe" [src]="movie.trailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <button class="closeBtn" (click)="closeTrailer()">
       <span class="closeBtnStyle"></span>
     </button>
   </div>
-  <img class="movieCover" [src]="movie.cover" [alt]="movie.title" />
-  <div class="movieInfo">
+  <img class="movieCover" [src]="movie.cover" [alt]="movie.title" *ngIf="movie" />
+  <div class="movieInfo" *ngIf="movie">
     <div class="title">
       <strong>{{ movie.title }}</strong>
     </div>
@@ -26,5 +26,8 @@
           <li [routerLink]="['/orders']" (click)="saveData(hour)">{{hour.hour}}</li>
         </ul>
       </div>
+  </div>
+  <div class="loadingContainer" *ngIf="!movie">
+    <app-loading-page mode="indeterminate"> </app-loading-page>
   </div>
 </section>

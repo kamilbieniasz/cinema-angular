@@ -1,14 +1,6 @@
 import { MovieService } from '../../../../services/movie.service';
-import {
-  Movie,
-  Hour,
-  Date,
-  Place,
-} from './../../../../interface/movieInterface';
+import { Movie } from './../../../../interface/movieInterface';
 import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-order-ticket',
@@ -23,21 +15,16 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
   @ViewChildren('place') placesNode:QueryList<ElementRef>
 
   movie: Movie;
-  time: Hour;
-  hours: Date;
-  itemNumber: number;
   price: number;
   selectedDate;
   selectedTime;
   private movieID: string;
-  errorMessage
+  errorMessage: string;
   places = [];
   selectedPlaces = [];
 
-
   constructor(
     private service: MovieService,
-    private router: Router
   ) {}
 
   async ngOnInit(): Promise<void> {
@@ -53,7 +40,6 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
   async ngAfterViewInit(): Promise<void> {
     this.placesNode.changes.subscribe(places => {
       places.map(place => {
-        console.log(place.nativeElement.status)
         place.nativeElement.status === "true" ? place.nativeElement.classList.add('free') : place.nativeElement.classList.add('taken');
       });
     })
@@ -61,16 +47,12 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
 
   getPlaces() {
     const date = {
-      // date: this.selectedDate.getFullYear() + "-" + this.selectedDate.getMonth() + "-" + this.selectedDate.getDate(),
       date: this.selectedDate,
       time: this.selectedTime
     };
 
-    console.log(date)
-
     this.service.getPlaces(this.movieID, date).subscribe(response => {
       this.places = response;
-      console.log(this.places)
     });
   }
 
@@ -94,8 +76,6 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
   }
 
   bookPlace(): void {
-    const formattedDate = this.selectedDate.getFullYear() + "-" + this.selectedDate.getMonth() + "-" + this.selectedDate.getDate();
-
     const date = {
       id: this.movieID,
       date: this.selectedDate,
@@ -103,9 +83,9 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
       places: this.selectedPlaces
     }
 
-    console.log(date);
-    this.service.bookPlaces(date).subscribe(response => {
-      console.log(response);
-    });
+    this.service.bookPlaces(date).subscribe();
+
+    this.ngOnInit();
+    this.selectedPlaces = [];
   }
 }

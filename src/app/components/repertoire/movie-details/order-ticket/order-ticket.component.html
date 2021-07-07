@@ -1,5 +1,5 @@
-<section class="orderWrapper" *ngIf="movie">
-    <div class="gridContainer">
+<section class="orderWrapper">
+    <div class="gridContainer" *ngIf="movie && places.length > 0">
         <div class="screenContainer">
             <iframe class="screen" [src]="movie.trailer | safe: 'resourceUrl'" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
@@ -16,7 +16,7 @@
             </li>
         </ul>
     </div>
-    <div class="orderInfo">
+    <div class="orderInfo" *ngIf="movie && places.length > 0">
         <h1 class="title"><strong>{{movie.title}}</strong></h1><br>
         <h3>Informacje o zamówieniu:</h3>
         <p>Data: {{selectedDate | date:"dd.MM.yyyy"}},</p>
@@ -32,5 +32,8 @@
             <span class="legendPlaceContainer"><span class="place selected"></span><p>- Zajęte stanowisko</p></span>
             <span class="legendPlaceContainer"><span class="place taken"></span><p>- Zaznaczone stanowisko</p></span>
         </div>
+    </div>
+    <div class="loadingContainer" *ngIf="!movie && !places.length">
+        <app-loading-page mode="indeterminate"> </app-loading-page>
     </div>
 </section>

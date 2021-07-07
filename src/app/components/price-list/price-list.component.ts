@@ -15,16 +15,12 @@ export class PriceListComponent implements OnInit {
   priceList: Price[] = [];
   errorMessage: string;
 
-  isLoading = true;
-
   constructor(private service: PricesService) {}
 
   ngOnInit(): void {
     this.service.getPriceList().subscribe(
       (data) => {
-        console.log(data)
         this.priceList = data;
-        this.isLoading = false;
       },
       (err: string) => (this.errorMessage = err)
     );

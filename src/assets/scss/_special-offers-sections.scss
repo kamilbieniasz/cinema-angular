@@ -3,7 +3,7 @@
 @import './mixins';
 
 .sectionWrapper{
-    height: 100vh;
+    height:100%;
     display:flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -13,11 +13,11 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
 
     @include respond-to(max-width, 768px){
         height:auto;
         min-height:100%;
+        margin: auto 0 0 0;
     }
 
     &>.title{
@@ -32,6 +32,11 @@
     &>.info{
         width:60%;
         text-shadow: 6px 6px 6px black;
+
+        @include respond-to(max-width, 768px) {
+            width: 100%;
+            padding: 0 50px;
+        }
         
         &>strong{
             font-size: $second-title;

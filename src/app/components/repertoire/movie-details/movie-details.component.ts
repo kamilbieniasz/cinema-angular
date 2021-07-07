@@ -19,7 +19,6 @@ export class MovieDetailsComponent implements OnInit {
   date: Date;
   hoursForCurrentDay = [];
   currentDay: globalThis.Date;
-  selectedHour: any;
   private id: string;
   errorMessage: string;
 

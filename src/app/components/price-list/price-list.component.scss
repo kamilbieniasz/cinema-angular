@@ -6,6 +6,7 @@
   width:100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: auto;
 
   @include respond-to(max-width, 1024px) {
@@ -27,9 +28,9 @@
       text-align: center;
       padding: 0;
 
-      // @include respond-to(max-width, 768px) {
-      //   font-size: $third-title;
-      // }
+      @include respond-to(max-width, 768px) {
+        padding: 0 25px;
+      }
     }
 
     &>p {
@@ -70,7 +71,7 @@
 
       @include respond-to(max-width, 768px) {
         white-space:normal;
-        // font-size: $third-title;
+        padding: 0 25px;
       }
     }
 

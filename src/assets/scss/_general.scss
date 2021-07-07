@@ -1,10 +1,12 @@
+@import './scrollbar';
+
 *{
     margin:0;
     padding:0;
 }
 html{
-    scroll-behavior: smooth;
-    // overflow-y:hidden;
+    overflow:hidden;
+    // scroll-behavior: smooth;
 }
 body{
     margin:0;

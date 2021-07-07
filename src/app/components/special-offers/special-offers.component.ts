@@ -1,6 +1,5 @@
 import { LiteralMapEntry } from '@angular/compiler/src/output/output_ast';
-import { Component, ElementRef, Host, HostListener, OnInit } from '@angular/core';
-import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons';
+import { Component, ElementRef, Host, HostListener, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-special-offers',
@@ -16,16 +15,13 @@ export class SpecialOffersComponent implements OnInit {
 
   fromMenu = false;
 
-  faAngleDoubleUp = faAngleDoubleUp;
-
   constructor() {}
 
 
   ngOnInit(): void {
-    const components = document.querySelector('app-special-offers>main')
+    const root = document.querySelector('app-special-offers > .scrollContainer')
     const sections = document.querySelectorAll('app-special-offers>main>.special-offer-section');
-    console.log(sections)
-    const observer = new IntersectionObserver(this.callback, {root: null, threshold: .5})
+    const observer = new IntersectionObserver(this.callback, {threshold: 1.0})
 
     sections.forEach(section => {
       observer.observe(section);
@@ -38,16 +34,5 @@ export class SpecialOffersComponent implements OnInit {
         location.hash = element.target.id;
       }
     });
-  }
-
-  changeNavBar(): void {
-    const navbar = document.querySelector('main > .navbar');
-    if (scrollY > 117) {
-      navbar.classList.remove('normalNavBar');
-      navbar.classList.add('navbarOnScroll');
-    } else if (scrollY < 117) {
-      navbar.classList.remove('navbarOnScroll');
-      navbar.classList.add('normalNavBar');
-    }
   }
 }

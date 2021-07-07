@@ -1,15 +1,15 @@
 <section class="priceWrapper">
     <!-- <p *ngIf="errorMessage">{{errorMessage}}</p> -->
-    <div class="priceListContainer" *ngIf="!isLoading">
+    <div class="priceListContainer" *ngIf="priceList.length > 0">
         <h2 class="title">Ceny biletów:</h2>
-        <ng-container class="ticketContainer" class="ticketContainer" *ngIf="!isLoading">
+        <ng-container class="ticketContainer" class="ticketContainer">
             <p *ngFor="let price of priceList">
                 <span class="ticketName">{{price.name}}:</span> 
                 <span class="ticketCost">{{price.price}}zł</span>
             </p>
         </ng-container>
     </div>
-    <div class="discount" *ngIf="!isLoading">
+    <div class="discount" *ngIf="priceList.length > 0">
         <h2 class="title">
             Im wcześniej kupisz bilet tym lepiej!
         </h2>
@@ -35,5 +35,5 @@
             <p>*Bilet na filmy z oznaczeniem classic - z szacunku do klasyków wszystkie klasyczne filmy taniej!</p>
         </span>
     </div>
-    <app-loading-page *ngIf="isLoading" mode="indeterminate"> </app-loading-page>
+    <app-loading-page *ngIf="!priceList.length" mode="indeterminate"> </app-loading-page>
 </section>

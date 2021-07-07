@@ -11,32 +11,23 @@ import { Component, OnInit } from '@angular/core';
   },
 })
 export class RepertoireComponent implements OnInit {
-  dayNumber: number;
   movies: Movie[] = [];
   currentMovies: Movie[] = [];
   date: Date[] = [];
   dayName: string[] = ['Nd', 'Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So'];
   monthName: string[] = ['Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru'];
   selectedItemId = 0;
-  currentDay;
   errorMessage: string;
 
-  isLoading = true;
-
-  constructor(
-    private service: MovieService
-  ) { }
+  constructor(private service: MovieService) { }
 
   ngOnInit(): void {
     this.service.getMovies().subscribe((response) => {
       this.movies = response;
-      this.isLoading = false;
 
       this.day();
-      // this.getDay(this.currentDay);
       this.sortMovieForList();
 
-      console.log(this.date);
     });
   }
 
@@ -52,10 +43,6 @@ export class RepertoireComponent implements OnInit {
       this.date.push(nextDay);
     }
   }
-
-  // getDay(day): void {
-  //   this.currentDay = day;
-  // }
 
   sortMovieForList(): void {
     this.currentMovies = [];
@@ -75,8 +62,6 @@ export class RepertoireComponent implements OnInit {
   sortMovieForSelect({ value }): void {
     const tab = value.split(',');
     const id = tab[0];
-    // const date = new Date(Date.parse(tab[1]));
-    // this.getDay(date.getDay());
     this.currentMovies = [];
     this.movies.forEach((movie) => {
       if (

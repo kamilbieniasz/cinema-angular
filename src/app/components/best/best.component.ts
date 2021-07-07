@@ -15,8 +15,6 @@ export class BestComponent implements OnInit {
   latestMovies: Movie[] = null;
   errorMessage: string;
 
-  // isLoading = false;
-
   constructor(
     private service: MovieService,
   ) {}
