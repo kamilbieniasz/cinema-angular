@@ -1,0 +1,83 @@
+@import '../../../assets/scss/colors';
+@import '../../../assets/scss/fonts';
+@import '../../../assets/scss/mixins';
+
+.modal{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+
+    & > .modalWrapper{
+        background-color: $color-white;
+
+        & > .bar{
+            width:100%;
+            padding: 5px 5px;
+            display: flex;
+            align-items: center;
+            background: $gradient-blue;
+
+            & > .title{
+                width:100%;
+                color: $color-white;
+                font-size: $big-font;
+                margin:0;
+            }
+        }
+
+        & > .modalContent {
+            padding:20px;
+
+            & > .orderInfo {
+                display:grid;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            & > .placesContainer {
+                & > .placesGrid {
+                    display:grid;
+                    grid-template-columns: repeat(5, 1fr);
+
+                    & > .place{
+                        width:40px;
+                        height:40px;
+                        border-radius: 20px;
+                        background-color: $light-blue;
+                        color:$color-white;
+                        display:flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+
+        & > .buttons{
+            display: flex;
+            justify-content: flex-end;
+
+            & > button {
+                border-radius: 10px;
+                padding:5px 10px;
+                margin:5px;
+                background-color: transparent;
+                border: none;
+                transition: 300ms ease-in-out;
+
+                &:hover{
+                    background-color: $light-blue;
+                    color: $color-white;
+                    transition: 300ms ease-in-out;
+                }
+
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+    }
+}

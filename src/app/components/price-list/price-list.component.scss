@@ -1,60 +1,130 @@
-main{
-    width:100vw;
-    min-height: 85vh;
-    display:flex;
-    justify-content: space-evenly;
+@import '../../../assets/scss/fonts';
+@import '../../../assets/scss/colors';
+@import '../../../assets/scss/mixins';
+
+.priceWrapper {
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  @include respond-to(max-width, 1024px) {
+      flex-direction: column;
+  }
+
+  &>.priceListContainer {
+    white-space:nowrap;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    .price-list{
-        width:40vw;
-        font-size:30px;
-        padding:40px;
-        .title{
-            display:flex;
-            justify-content: center;
-            padding:20px;
-        }
-        .even{
-            
-        }
-        
+    padding: 0 40px 40px 40px;
+
+    @include respond-to(max-width, 768px) {
+      white-space: normal;
     }
-    .discount{
-        width:40vw;
-        display:flex;
-        font-size:25px;
-        flex-direction: column;
-        span{
-            width:100%;
-            display:flex;
-            justify-content: center;
-            padding:50px;
-        }
-        table{
-            border:1px solid black;
-            tr{
-                border:1px solid black;
-                th{
-                    text-align:center;
-                    border:1px solid black;
-                }
-                td{
-                    text-align:center;
-                    border:1px solid black;
-                }
-            }
-        }
-        .normalTicket{
-            display:flex;
-            justify-content: center;
-            font-size:15px;
-        }
-        .info{
-            display:flex;
-            flex-direction: column;
-            p{
-                margin:0;
-                font-size:15px;
-            }
-        }
+
+    &>.title {
+      text-align: center;
+      padding: 0;
+
+      @include respond-to(max-width, 768px) {
+        padding: 0 25px;
+      }
     }
+
+    &>p {
+      width: 100%;
+      text-align: left;
+      display: grid;
+      grid-template-areas: "name cost";
+
+      &> span {
+        padding: 0 10px;
+        font-size:$third-title;
+
+        @include respond-to(max-width, 768px){
+          font-size:unset;
+        }
+      }
+
+      &>.ticketName {
+        grid-area: name;
+      }
+
+      &>.ticketCost {
+        grid-area: cost;
+        text-align: right;
+      }
+    }
+  }
+
+  &>.discount {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+
+    @include respond-to(max-width, 768px) {
+      width: 100%;
+    }
+
+    &>.title {
+      white-space: nowrap;
+      text-align: center;
+
+      @include respond-to(max-width, 768px) {
+        white-space:normal;
+        padding: 0 25px;
+      }
+    }
+
+    & > span {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 50px;
+    }
+
+    & > .normalTicket {
+      text-align: center;
+      font-size: $small-font;
+    }
+
+    & > table {
+      border: 1px solid black;
+
+      @include respond-to(max-width,768px) {
+        transform: scale(0.8)
+      }
+
+      & > tr {
+        border: 1px solid black;
+
+        & > th {
+          text-align: center;
+          border: 1px solid black;
+          font-size: $medium-font;
+          padding: 10px 20px;
+        }
+
+        & > td {
+          text-align: center;
+          border: 1px solid black;
+        }
+      }
+    }
+
+    & > .info {
+      width:fit-content;
+      display: flex;
+      flex-direction: column;
+
+      & > p {
+        width:fit-content;
+        margin: 0;
+        font-size: $small-font;
+      }
+    }
+  }
 }

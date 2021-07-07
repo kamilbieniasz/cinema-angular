@@ -1,16 +1,70 @@
-.infoContainer{
- display:flex;
- justify-content: space-around;
- align-items: center;
- min-height: 40vh;
-}
-.mapContainer{
-    display:flex;
+@import '../../../assets/scss/colors';
+@import '../../../assets/scss/mixins';
+@import '../../../assets/scss/fonts';
+
+.contactWrapper {
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include respond-to(max-width, 768px) {
+    flex-direction: column;
+  }
+
+  @include respond-to(max-width, 1024px) {
+      margin-top: auto;
+      flex-direction: column;
+  }
+
+  .infoContainer {
+      display:flex;
+      flex-direction: column;
+
+      @include respond-to(max-width, 1024px) {
+        flex-direction: row;
+      }
+      
+      @include respond-to(max-width, 768px) {
+        flex-direction: column;
+      }
+
+    &>.address {
+      grid-area: address;
+    }
+
+    &>.reservation {
+      grid-area: reservation;
+    }
+
+    &>.hours {
+      grid-area: hours;
+    }
+  }
+
+
+
+  &>.mapContainer {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 45vh;
-    .map{
-        margin:40px;
+
+    @include respond-to(max-width, 768px) {
+      width:100%;
     }
+
+    &>.map {
+      margin: 40px;
+
+      // @include respond-to(max-width, 568px) {
+      //   height:400px;
+      //   width: 95%
+      // }
+
+      @include respond-to(max-width, 768px) {
+          width: 95%;
+      }
+    }
+  }
 }

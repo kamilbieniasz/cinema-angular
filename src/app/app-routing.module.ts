@@ -1,3 +1,8 @@
+import { ClassicMovieComponent } from './components/special-offers/classic-movie/classic-movie.component';
+import { HorrorNightComponent } from './components/special-offers/horror-night/horror-night.component';
+import { CheapWednesdayComponent } from './components/special-offers/cheap-wednesday/cheap-wednesday.component';
+import { ForCompanyComponent } from './components/special-offers/for-company/for-company.component';
+import { ForSchoolComponent } from './components/special-offers/for-school/for-school.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { OrderTicketComponent } from './components/repertoire/movie-details/order-ticket/order-ticket.component';
 import { MovieDetailsComponent } from './components/repertoire/movie-details/movie-details.component';
@@ -12,10 +17,16 @@ const routes: Routes = [
     {path: '', redirectTo: '/best', pathMatch: 'full'},
     {path: 'best', component: BestComponent},
     {path: 'repertoire', component: RepertoireComponent},
-    {path: 'movie/:id', component: MovieDetailsComponent},
+    {path: 'movies/:id', component: MovieDetailsComponent},
     {path: 'orders', component: OrderTicketComponent},
     {path: 'price-list', component: PriceListComponent},
-    {path: 'special-offers', component: SpecialOffersComponent},
+    {path: 'special-offers', component: SpecialOffersComponent, children: [
+        {path: 'for-school', component: ForSchoolComponent},
+        {path: 'for-company', component: ForCompanyComponent},
+        {path: 'cheap-wednesday', component: CheapWednesdayComponent},
+        {path: 'horrors-night', component: HorrorNightComponent},
+        {path: 'classic-movies', component: ClassicMovieComponent},
+    ]},
     {path: 'contact', component: ContactComponent}
 ]
 

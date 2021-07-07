@@ -1,71 +1,16 @@
-main{
-    min-height: 85vh;
-    .navbar{
-        width:100vw;
-        display:flex;
-        justify-content: center;
-        display:flex;
-        list-style-type: none;
-        li{
-            margin:30px;
-            width:200px;
-            height:50px;
-            font-size:20px;
-            cursor: pointer;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            border-radius:10px;
-            transition: transform .15s ease-in-out;
-        }
-        li:hover{
-            transform: scale(1.2);
-            transition: transform .15s ease-in-out;
-        }
-    }  
-    @keyframes transitionIn {
-        from{
-            opacity: 0;
-        }
-        to{
-            opacity:1;
-        }
-        
-    }
-    .Container{
-        animation: transitionIn .8s;
-        padding-left:100px;
-        min-height:60vh;
-        .title{
-            display:flex;
-            justify-content: center;
-        }
-        p{
-            margin-top:100px;
-            width:40vw;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .text{
-            ul{
-                padding-left:40px;
-            }
+@import '../../../assets/scss/colors';
+@import '../../../assets/scss/fonts';
+@import '../../../assets/scss/scrollbar';
+@import '../../../assets/scss/mixins';
+
+.scrollContainer{
+    
+    ::ng-deep section{
+        height:100vh;
+        scroll-snap-align: start;
+
+        @include respond-to(max-width, 768px) {
+            height: fit-content;
         }
     }
-    .forCompany, .cheapWednesday, .horrorsNight, .classicMovies{
-        animation: transitionIn .8s;
-        margin-top:200px;
-        height:80vh;
-        .title{
-            margin-bottom:100px;
-        }
-        .info{
-            .text{
-                p{
-                    margin-top:0px;
-                }
-            }
-        }
-    }
-}
+ }

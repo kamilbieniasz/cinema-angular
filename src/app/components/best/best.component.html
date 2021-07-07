@@ -1,27 +1,32 @@
-<main>
-  <div class="sliderContainer">
-    <span class="type">Najnowsze</span>
-    <ngb-carousel *ngIf="imagesLatest">
-      <ng-container *ngFor="let latest of latest; let i = index">
-        <ng-template ngbSlide>
-          <div class="picsum-img-wrapper">
-            <img (click)="sendMovie(latest)" [routerLink]="['/movie', latest.id]" [src]="imagesLatest[i]" alt="Random first slide" />
-          </div>
-        </ng-template>
-      </ng-container>
-    </ngb-carousel>
-  </div>
+<section class="bestMovieWrapper">
+    <h1>Polecane przez nas filmy</h1>
+    <p *ngIf="errorMessage">{{errorMessage}}</p>
+  <div class="slidersContainer">
+    <div class="slider" *ngIf="latestMovies">
+      <h2 class="type">Najnowsze</h2>
+      <ngb-carousel>
+        <ng-container *ngFor="let last of latestMovies; let i = index">
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img tabindex="6" [routerLink]="['/movies', last.id]" [src]="last.cover" alt="Random first slide" />
+            </div>
+          </ng-template>
+        </ng-container>
+      </ngb-carousel>
+    </div>
 
-  <div class="sliderContainer">
-    <span class="type">Najlepsze</span>
-    <ngb-carousel *ngIf="imagesBest">
-      <ng-container *ngFor="let best of best; let i = index">
-      <ng-template ngbSlide>
-        <div class="picsum-img-wrapper">
-          <img (click)="sendMovie(best)" [routerLink]="['/movie', best.id]" [src]="imagesBest[i]" alt="Random first slide" />
-        </div>
-      </ng-template>
-    </ng-container>
-    </ngb-carousel>
+    <div class="slider" *ngIf="bestMovies">
+      <h2 class="type">Najlepsze</h2>
+      <ngb-carousel>
+        <ng-container *ngFor="let best of bestMovies; let i = index">
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img tab-index="6" [routerLink]="['/movies', best.id]" [src]="best.cover" alt="Random first slide" />
+            </div>
+          </ng-template>
+        </ng-container>
+      </ngb-carousel>
+    </div>
   </div>
-</main>
+  <app-loading-page *ngIf="!bestMovies && !latestMovies" mode="indeterminate"> </app-loading-page>
+</section>

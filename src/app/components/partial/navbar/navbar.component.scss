@@ -1,0 +1,153 @@
+@import '../../../../assets/scss/mixins';
+@import '../../../../assets/scss/colors';
+@import '../../../../assets/scss/fonts';
+
+.hamburgerBtn {
+  padding: 10px 5px 0 5px;
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  z-index: 21;
+  display: none;
+  outline: none;
+  position: fixed;
+
+  @include respond-to(max-width, 768px) {
+    display: block;
+  }
+
+  &.hamburgerBtnActive .hamburgerBar {
+    background: transparent !important;
+    -webkit-box-shadow: none !important; 
+    box-shadow: none !important;
+  }
+
+  &.hamburgerBtnActive .hamburgerBar::before {
+    background: transparent !important;
+    background-color: $color-white !important;
+    transform: translateY(8px) rotate(45deg);
+    transition: transform .2s ease-in-out
+  }
+
+  &.hamburgerBtnActive .hamburgerBar::after {
+    background: transparent !important;
+    background-color: $color-white !important;
+    transform: translateY(-8px) rotate(-45deg);
+    transition: transform .2s ease-in-out
+  }
+
+  & > .hamburgerBarContainer {
+    width: 25px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+
+    @mixin hamburgerBarStyle {
+      width: 100%;
+      height: 3px;
+      background: $light-blue;
+      position: absolute;
+      z-index: 0;
+      -webkit-box-shadow: 0px 0px 2px 0px #ffffff; 
+      box-shadow: 0px 0px 2px 0px #ffffff;
+    }
+
+    .hamburgerBar {
+      @include hamburgerBarStyle;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &:before,
+      &:after {
+        @include hamburgerBarStyle;
+        content: '';
+        left: 0;
+        transition: transform .2s ease-in-out
+      }
+
+      &:before {
+        top: -8px;
+      }
+
+      &:after {
+        top: 8px;
+      }
+    }
+  }
+}
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  background: $gradient-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s ease-in-out;
+  z-index: 20;
+
+  @include respond-to(max-width, 1366px) {
+    height: 60px;
+    transition: .3s ease-in-out;
+  }
+
+  @include respond-to(max-width, 768px) {
+    height: fit-content;
+    flex-direction: column;
+    transform: translateX(-100%);
+  }
+
+  &.showMenu {
+    transform: translateX(0);
+  }
+
+  &>ul {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+
+    @include respond-to(max-width, 768px) {
+      flex-direction: column;
+    }
+
+    &>li {
+      cursor: pointer;
+      list-style-type: none;
+      color: white;
+      font-size: 30px;
+      transition: .3s ease-in-out;
+      padding: 0 20px;
+
+      @include respond-to(max-width, 1366px) {
+        font-size: 25px;
+        transition: .3s ease-in-out;
+      }
+
+      @include respond-to(max-width, 768px) {
+        padding: 5px 0;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &:hover {
+        transform: scale(1.2);
+        transition: transform .15s;
+      }
+
+      &:active {
+        outline: none;
+      }
+    }
+  }
+}

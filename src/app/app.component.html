@@ -1,13 +1,8 @@
-<nav class="navbar">
-  <ul>
-    <li [routerLink]="['/repertoire']" routerLinkActive="router-link-active">Repertuar</li>
-    <span class="verticalLine"></span>
-    <li [routerLink]="['/price-list']" routerLinkActive="router-link-active" >Cennik</li>
-    <span class="verticalLine"></span>
-    <li [routerLink]="['/special-offers']" routerLinkActive="router-link-active" >Oferty specjalne</li>
-    <span class="verticalLine"></span>
-    <li [routerLink]="['/contact']" routerLinkActive="router-link-active" >O nas</li>
-  </ul>
-</nav>
-<router-outlet></router-outlet>
-<footer>© Kamil Bieniasz</footer>
+<main>
+  <navbar></navbar>
+  <div class="content">
+    <router-outlet></router-outlet>
+    <app-footer class="footerWrapper"></app-footer>
+  </div>
+</main>
+
