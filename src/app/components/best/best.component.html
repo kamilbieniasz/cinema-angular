@@ -28,5 +28,7 @@
       </ngb-carousel>
     </div>
   </div>
-  <app-loading-page *ngIf="!bestMovies && !latestMovies" mode="indeterminate"> </app-loading-page>
+  <div class="loadingContainer" *ngIf="!bestMovies && !latestMovies">
+    <app-loading-page mode="indeterminate"> </app-loading-page>
+  </div>
 </section>
