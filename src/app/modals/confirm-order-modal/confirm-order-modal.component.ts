@@ -13,6 +13,7 @@ export class ConfirmOrderModalComponent implements OnInit {
   @Input() time;
   @Input() price;
   @Output() closeModal: EventEmitter<any> = new EventEmitter();
+  @Output() refresh: EventEmitter<any> = new EventEmitter();
 
   constructor(private service: MovieService) { }
 
@@ -21,6 +22,10 @@ export class ConfirmOrderModalComponent implements OnInit {
 
   close() {
     this.closeModal.emit(null);
+  }
+
+  refreshDate() {
+    this.refresh.emit(null);
   }
 
   bookPlace(): void {
@@ -32,6 +37,7 @@ export class ConfirmOrderModalComponent implements OnInit {
     }
 
     this.service.bookPlaces(date).subscribe();
+    this.refreshDate();
     this.close();
   }
 

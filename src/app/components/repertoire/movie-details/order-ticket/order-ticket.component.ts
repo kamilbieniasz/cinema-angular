@@ -76,27 +76,18 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
     this.price = this.selectedPlaces.length * 35;
   }
 
-  // bookPlace(): void {
-    // const date = {
-    //   id: this.movieID,
-    //   date: this.selectedDate,
-    //   time: this.selectedTime,
-    //   places: this.selectedPlaces
-    // }
-
-    // this.service.bookPlaces(date).subscribe();
-
-    // this.ngOnInit();
-    // this.selectedPlaces = [];
-
-  //   this.openModal();
-  // }
-
   openModal(): void{
     this.modal = true;
   }
 
   closeModal(): void{
     this.modal = false;
+  }
+
+  async refreshData(): Promise<void> {
+    this.places = [];
+    this.selectedPlaces = [];
+    await this.service.getMovieById(this.movieID).toPromise().then( response => {this.movie = response}, err => {this.errorMessage = err });
+    this.getPlaces();
   }
 }
