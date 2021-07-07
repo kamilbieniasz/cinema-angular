@@ -24,6 +24,9 @@ import { CheapWednesdayComponent } from './components/special-offers/cheap-wedne
 import { HorrorNightComponent } from './components/special-offers/horror-night/horror-night.component';
 import { ClassicMovieComponent } from './components/special-offers/classic-movie/classic-movie.component';
 import { LoadingPageComponent } from './components/loading-page/loading-page.component';
+import { ConfirmOrderModalComponent } from './modals/confirm-order-modal/confirm-order-modal.component';
+import { DateFormatPipe } from './pipes/date-format.pipe';
+import { TrailerComponent } from './modals/trailer/trailer.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { LoadingPageComponent } from './components/loading-page/loading-page.com
     HorrorNightComponent,
     ClassicMovieComponent,
     LoadingPageComponent,
+    ConfirmOrderModalComponent,
+    DateFormatPipe,
+    TrailerComponent,
   ],
   imports: [
     BrowserModule,

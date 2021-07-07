@@ -22,6 +22,7 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
   errorMessage: string;
   places = [];
   selectedPlaces = [];
+  modal = false;
 
   constructor(
     private service: MovieService,
@@ -75,17 +76,27 @@ export class OrderTicketComponent implements OnInit, AfterViewInit {
     this.price = this.selectedPlaces.length * 35;
   }
 
-  bookPlace(): void {
-    const date = {
-      id: this.movieID,
-      date: this.selectedDate,
-      time: this.selectedTime,
-      places: this.selectedPlaces
-    }
+  // bookPlace(): void {
+    // const date = {
+    //   id: this.movieID,
+    //   date: this.selectedDate,
+    //   time: this.selectedTime,
+    //   places: this.selectedPlaces
+    // }
 
-    this.service.bookPlaces(date).subscribe();
+    // this.service.bookPlaces(date).subscribe();
 
-    this.ngOnInit();
-    this.selectedPlaces = [];
+    // this.ngOnInit();
+    // this.selectedPlaces = [];
+
+  //   this.openModal();
+  // }
+
+  openModal(): void{
+    this.modal = true;
+  }
+
+  closeModal(): void{
+    this.modal = false;
   }
 }

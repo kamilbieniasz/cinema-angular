@@ -132,9 +132,13 @@
           grid-template-columns: repeat(5, 1fr);
 
           & > p {
-            padding:10px;
+            width:40px;
+            height:40px;
             margin:10px;
-            border-radius:50%;
+            border-radius:20px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
             background-color:$light-blue;
             color:$color-white;
           }
@@ -159,18 +163,25 @@
         background: transparent;
         border: 2px solid $dark-blue;
         margin: 20px;
+        transition: 100ms ease-in-out;
 
         @include respond-to(min-width, 768px){
-          &:hover{
+          &:not([disabled]):hover{
             background: $gradient-blue;
             color: $color-white;
             transform: scale(1.1);
+            transition: 100ms ease-in-out;
           }
         }
 
         &:focus{
           outline: none;
         }
+      }
+      & > .error {
+        color: $color-error;
+        margin: 30px;
+        font-size: $medium-font;
       }
     }
 }

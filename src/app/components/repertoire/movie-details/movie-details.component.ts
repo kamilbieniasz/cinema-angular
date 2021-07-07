@@ -13,14 +13,13 @@ import { ActivatedRoute } from '@angular/router';
   },
 })
 export class MovieDetailsComponent implements OnInit {
-  @ViewChild('trailerModal') trailerModal: ElementRef;
-
   movie: Movie;
   date: Date;
   hoursForCurrentDay = [];
   currentDay: globalThis.Date;
   private id: string;
   errorMessage: string;
+  trailer = false;
 
   constructor(private service: MovieService, private route: ActivatedRoute) {}
 
@@ -62,18 +61,11 @@ export class MovieDetailsComponent implements OnInit {
     }
   }
 
-  showTrailer(): void {
-    this.stopTrailer();
-    this.trailerModal.nativeElement.classList.toggle('showTrailer');
+  openTrailer(): void {
+    this.trailer = true;
   }
 
   closeTrailer(): void {
-    this.stopTrailer();
-    this.trailerModal.nativeElement.classList.remove('showTrailer');
-  }
-
-  stopTrailer(): void{
-    const currentURL = this.trailerModal.nativeElement.children[0].getAttribute('src');
-    this.trailerModal.nativeElement.children[0].setAttribute('src', currentURL + '?enablejsapi=1');
+    this.trailer = false;
   }
 }

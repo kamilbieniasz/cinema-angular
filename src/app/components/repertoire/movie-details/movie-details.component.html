@@ -1,11 +1,5 @@
 <section class="movieDetailsWrapper">
   <p *ngIf="errorMessage">{{errorMessage}}</p>
-  <div #trailerModal class="trailerScreen" *ngIf="movie">
-    <iframe class="movieIframe" [src]="movie.trailer | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <button class="closeBtn" (click)="closeTrailer()">
-      <span class="closeBtnStyle"></span>
-    </button>
-  </div>
   <img class="movieCover" [src]="movie.cover" [alt]="movie.title" *ngIf="movie" />
   <div class="movieInfo" *ngIf="movie">
     <div class="title">
@@ -18,7 +12,7 @@
       Premiera: {{ movie.release_date | date: 'dd.MM.yyyy' }}, Czas trwania: {{ movie.duration }}
     </div><br>
     <div class="trailerBtnContainer">
-      <button class="trailerBtn" (click)="showTrailer()">Zobacz trailer</button>
+      <button class="trailerBtn" (click)="openTrailer()">Zobacz trailer</button>
     </div>
     <label for="hours" *ngIf="movie" class="order"><strong>Zamów Bilet!</strong></label>
       <div id="hours" class="hours" >
@@ -26,6 +20,9 @@
           <li [routerLink]="['/orders']" (click)="saveData(hour)">{{hour.hour}}</li>
         </ul>
       </div>
+  </div>
+  <div *ngIf="movie">
+    <app-trailer *ngIf="trailer" [movie]="movie" (close)="closeTrailer()"></app-trailer>
   </div>
   <div class="loadingContainer" *ngIf="!movie">
     <app-loading-page mode="indeterminate"> </app-loading-page>

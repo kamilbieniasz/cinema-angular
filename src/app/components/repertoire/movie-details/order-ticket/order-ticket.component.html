@@ -26,13 +26,15 @@
             <p *ngFor="let selectedPlace of selectedPlaces" class="selectedPlace"> {{selectedPlace}}, </p>
         </div>
         <p>Cena: {{price}} zł</p>
-        <button class="orderBtn" (click)="bookPlace()">Zatwierdź zamówienie</button>
+        <button class="orderBtn" (click)="openModal()" [disabled]="!selectedPlaces.length">Zatwierdź zamówienie</button>
         <div class="legend">
             <span class="legendPlaceContainer"><span class="place free"></span><p>- Wolne stanowisko</p></span>
             <span class="legendPlaceContainer"><span class="place selected"></span><p>- Zajęte stanowisko</p></span>
             <span class="legendPlaceContainer"><span class="place taken"></span><p>- Zaznaczone stanowisko</p></span>
         </div>
+        <small [hidden]="selectedPlaces.length" class="error">Musisz wybrać przynajmniej jedno miejsce!</small>
     </div>
+    <app-confirm-order-modal *ngIf="modal" [movie]="movie" [places]="selectedPlaces" [date]="selectedDate" [time]="selectedTime" [price]="price" (closeModal)="closeModal($event)"></app-confirm-order-modal>
     <div class="loadingContainer" *ngIf="!movie && !places.length">
         <app-loading-page mode="indeterminate"> </app-loading-page>
     </div>

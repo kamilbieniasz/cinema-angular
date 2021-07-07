@@ -1,0 +1,27 @@
+<div class="modal">
+    <div class="modalWrapper">
+        <div class="bar">
+            <h2 class="title">Potwierdź zamówienie</h2>
+        </div>
+        <div class="modalContent">
+            <h3>Zamówienie:</h3>
+            <div class="orderInfo">
+                <p *ngIf="movie">tytuł:</p> <p>{{movie.title}}</p>
+                <p *ngIf="date">Data:</p> <p>{{date | dateFormat}} - {{time}}</p>
+                <p *ngIf="price">Do zapłaty:</p> <p>{{price}} zł</p>
+            </div>
+
+            <hr/>
+            <div class="placesContainer">
+                <h3>Twoje miejsca:</h3>
+                <div class="placesGrid">
+                    <p class="place" *ngFor="let place of places">{{place}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button (click)="bookPlace()">Potwierdź</button>
+            <button (click)="close()">Anuluj</button>
+        </div>
+    </div>
+</div>
